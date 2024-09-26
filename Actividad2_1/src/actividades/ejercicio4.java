@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author Tarde
+ * @author Fatima Mortahil Chachou
  */
 public class ejercicio4 {
     public static void main(String[] args) {

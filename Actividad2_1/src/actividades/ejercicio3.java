@@ -7,7 +7,7 @@ package actividades;
 
 /**
  *
- * @author Tarde
+ * @author Fatima Mortahil Chachou
  */
 public class ejercicio3 {
     

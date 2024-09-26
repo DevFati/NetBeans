@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author Tarde
+ * @author Fatima Mortahil Chachou
  */
 public class ejercicio7 {
     public static void main(String[] args) {
@@ -17,10 +17,15 @@ public class ejercicio7 {
 muestre el promedio de las mismas.*/
         
         Scanner teclado=new Scanner(System.in);
-        int [] calificaciones=new int [5];
+        float [] calificaciones=new float [5];
+        float suma=0;
         for(int i=0;i<5;i++){
+            System.out.println("Introduce la "+(i+1)+" calificacion: ");
+            calificaciones[i]=teclado.nextFloat();
+            suma=suma+calificaciones[i];
             
         }
+        System.out.println(suma/calificaciones.length);
         
     }
 }
