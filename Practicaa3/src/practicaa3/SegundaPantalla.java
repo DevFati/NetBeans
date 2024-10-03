@@ -2,8 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package com.mycompany.practica3;
+package practicaa3;
 
+import practicaa3.PrimeraPantalla;
 import java.awt.Color;
 import javax.swing.ButtonGroup;
 import javax.swing.JRadioButton;
