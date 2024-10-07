@@ -132,7 +132,6 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         } else if (jRadioButtonAzul.isSelected()) {
             mensaje = mensaje + "Azul";
         }
-
         jLabelResultado.setText(mensaje);
     }//GEN-LAST:event_jButtonAceptarActionPerformed
 
