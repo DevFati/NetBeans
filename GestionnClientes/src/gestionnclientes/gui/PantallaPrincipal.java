@@ -2,9 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package gestionnclientes;
+package gestionnclientes.gui;
 
-import gestionnclientes.DialogoAlta;
+import gestionnclientes.gui.DialogoAlta;
 
 /**
  *
