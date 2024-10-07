@@ -4,7 +4,9 @@
  */
 package gestionnclientes.gui;
 
+import gestionnclientes.dto.Cliente;
 import gestionnclientes.gui.DialogoAlta;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -17,6 +19,18 @@ public class PantallaPrincipal extends javax.swing.JFrame {
      */
     public PantallaPrincipal() {
         initComponents();
+        inicializarTabla();
+    }
+    
+    private void inicializarTabla(){
+        DefaultTableModel dtm=new DefaultTableModel();
+        dtm.setColumnIdentifiers(new String[]{"Nombre","Apellidos","Fecha Alta","Provincia"});
+        jTableClientes.setModel(dtm);
+    }
+    
+    public void anadirCliente(Cliente cliente){
+        DefaultTableModel dtm=(DefaultTableModel)jTableClientes.getModel();
+        dtm.addRow(cliente.toArrayString());
     }
 
     /**
