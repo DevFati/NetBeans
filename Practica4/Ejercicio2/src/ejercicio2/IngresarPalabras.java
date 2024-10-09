@@ -1,22 +1,32 @@
 package ejercicio2;
 
+import java.util.ArrayList;
+import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author Tarde
  */
 public class IngresarPalabras extends javax.swing.JFrame {
 
+    ArrayList V = new ArrayList();
+    ArrayList C = new ArrayList();
+    DefaultListModel modelo = new DefaultListModel();
+    DefaultListModel modelo2=new DefaultListModel();
+
     /**
      * Creates new form IngresarPalabras
      */
     public IngresarPalabras() {
         initComponents();
+        jListConsonante.setModel(modelo2);
+        jListVocal.setModel(modelo);
     }
 
     /**
@@ -34,16 +44,12 @@ public class IngresarPalabras extends javax.swing.JFrame {
         jButtonIngresar = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        jScrollPane5 = new javax.swing.JScrollPane();
+        jScrollPane7 = new javax.swing.JScrollPane();
         jListVocal = new javax.swing.JList<>();
-        jScrollPane4 = new javax.swing.JScrollPane();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea2 = new javax.swing.JTextArea();
-        jScrollPane6 = new javax.swing.JScrollPane();
+        jScrollPane8 = new javax.swing.JScrollPane();
         jListConsonante = new javax.swing.JList<>();
+        btnvaciarv = new javax.swing.JButton();
+        btnvaciarc = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -56,66 +62,66 @@ public class IngresarPalabras extends javax.swing.JFrame {
         });
 
         jButtonIngresar.setText("Ingresar");
+        jButtonIngresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonIngresarActionPerformed(evt);
+            }
+        });
 
         jLabel2.setText("Comienza con vocal ");
 
         jLabel3.setText("Comienza con consonante");
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        jScrollPane7.setViewportView(jListVocal);
 
-        jScrollPane3.setViewportView(jScrollPane1);
+        jScrollPane8.setViewportView(jListConsonante);
 
-        jListVocal.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
+        btnvaciarv.setText("Vaciar lista ");
+        btnvaciarv.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnvaciarvActionPerformed(evt);
+            }
         });
-        jScrollPane5.setViewportView(jListVocal);
 
-        jScrollPane3.setViewportView(jScrollPane5);
-
-        jTextArea2.setColumns(20);
-        jTextArea2.setRows(5);
-        jScrollPane2.setViewportView(jTextArea2);
-
-        jScrollPane4.setViewportView(jScrollPane2);
-
-        jListConsonante.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
+        btnvaciarc.setText("Vaciar lista");
+        btnvaciarc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnvaciarcActionPerformed(evt);
+            }
         });
-        jScrollPane6.setViewportView(jListConsonante);
-
-        jScrollPane4.setViewportView(jScrollPane6);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGap(26, 26, 26)
+                .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(33, 33, 33))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(83, 83, 83)
-                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(12, 12, 12))
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(62, 62, 62)
+                        .addComponent(jLabel3))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jTextFieldIngresarPalabra, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(61, 61, 61)
-                                .addComponent(jButtonIngresar)
-                                .addGap(23, 23, 23))
-                            .addComponent(jLabel3))))
-                .addContainerGap(38, Short.MAX_VALUE))
+                        .addContainerGap()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jTextFieldIngresarPalabra, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButtonIngresar)
+                        .addGap(23, 23, 23)))
+                .addContainerGap(60, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(57, 57, 57)
+                .addComponent(btnvaciarv)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnvaciarc)
+                .addGap(54, 54, 54))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -129,11 +135,14 @@ public class IngresarPalabras extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(43, 43, 43)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane3)
-                    .addComponent(jScrollPane4))
-                .addGap(34, 34, 34))
+                    .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 32, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnvaciarv)
+                    .addComponent(btnvaciarc)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -158,8 +167,54 @@ public class IngresarPalabras extends javax.swing.JFrame {
 
     private void jTextFieldIngresarPalabraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldIngresarPalabraActionPerformed
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_jTextFieldIngresarPalabraActionPerformed
+
+    private void jButtonIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIngresarActionPerformed
+        String dato = jTextFieldIngresarPalabra.getText();
+        
+        if(dato.isEmpty()){
+                       JOptionPane.showMessageDialog(null,"Cadena vacia" );
+ 
+        }else{
+            String letra = dato.charAt(0) + "";
+        letra.toLowerCase();
+             if (dato.matches("[A-Za-zñÑ]+")) {
+            if (letra.matches("[aeiou]")) {
+                V.add(dato);
+            } else {
+                C.add(dato);
+            }
+              jTextFieldIngresarPalabra.setText("");
+        modelo.removeAllElements();
+        modelo2.removeAllElements();
+        for(int i=0;i<V.size();i++){
+            modelo.addElement(V.get(i));
+        }
+        
+        for(int i=0;i<C.size();i++){
+             modelo2.addElement(C.get(i));
+        }
+        }else{
+                  jTextFieldIngresarPalabra.setText("");
+            JOptionPane.showMessageDialog(null,"Cadena introducida contiene caracteres raros o números" );
+        }
+        }
+       
+        
+      
+
+    }//GEN-LAST:event_jButtonIngresarActionPerformed
+
+    private void btnvaciarvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnvaciarvActionPerformed
+        V.clear();
+        modelo.removeAllElements();
+    }//GEN-LAST:event_btnvaciarvActionPerformed
+
+    private void btnvaciarcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnvaciarcActionPerformed
+       C.clear();
+        modelo2.removeAllElements();
+    }//GEN-LAST:event_btnvaciarcActionPerformed
 
     /**
      * @param args the command line arguments
@@ -197,6 +252,8 @@ public class IngresarPalabras extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnvaciarc;
+    private javax.swing.JButton btnvaciarv;
     private javax.swing.JButton jButtonIngresar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -204,14 +261,8 @@ public class IngresarPalabras extends javax.swing.JFrame {
     private javax.swing.JList<String> jListConsonante;
     private javax.swing.JList<String> jListVocal;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JScrollPane jScrollPane5;
-    private javax.swing.JScrollPane jScrollPane6;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextArea jTextArea2;
+    private javax.swing.JScrollPane jScrollPane7;
+    private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JTextField jTextFieldIngresarPalabra;
     // End of variables declaration//GEN-END:variables
 }

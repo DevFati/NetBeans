@@ -147,11 +147,11 @@ public class GenerarNumerosAleatorios extends javax.swing.JFrame {
     private void jButtonGenerarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGenerarActionPerformed
         int resultado=0;
         if(jRadioButton100.isSelected()){
-            resultado=(int)(Math.random()*(100-0)+0);
+            resultado=(int)(Math.random()*(101-0)+0);
         }else if(jRadioButton200.isSelected()){
-            resultado=(int)(Math.random()*(200-100)+100);
+            resultado=(int)(Math.random()*(201-100)+100);
         }else if(jRadioButton500.isSelected()){
-            resultado=(int)(Math.random()*(500-200)+200);
+            resultado=(int)(Math.random()*(501-200)+200);
         }
         
         jTextFieldResultado.setText(resultado+"");
