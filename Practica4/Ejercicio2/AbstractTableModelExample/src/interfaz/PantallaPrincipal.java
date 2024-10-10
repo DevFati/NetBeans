@@ -1,14 +1,12 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
-package gestionnclientes.gui;
+package interfaz;
 
-import gestionnclientes.dto.Cliente;
-import gestionnclientes.gui.DialogoAlta;
-import gestionnclientes.logica.LogicaNegocio;
-import java.util.List;
-import javax.swing.table.DefaultTableModel;
+import interfaz.tablemodels.AlumnosTableModel;
+import logica.LogicaNegocio;
 
 /**
  *
@@ -16,30 +14,14 @@ import javax.swing.table.DefaultTableModel;
  */
 public class PantallaPrincipal extends javax.swing.JFrame {
 
+    private LogicaNegocio logicaNegocio= new LogicaNegocio();
     /**
      * Creates new form PantallaPrincipal
      */
     public PantallaPrincipal() {
         initComponents();
-        refrescarTabla();
+        jTable1.setModel(new AlumnosTableModel(logicaNegocio.getListaAlumnos()));
     }
-    
-    private void refrescarTabla(){
-        DefaultTableModel dtm=new DefaultTableModel();
-        dtm.setColumnIdentifiers(new String[]{"Nombre","Apellidos","Fecha Alta","Provincia"});
-        List<Cliente>listaClientes=LogicaNegocio.getListaClientes();
-        for (Cliente cliente : listaClientes) {
-            dtm.addRow(cliente.toArrayString());
-        }
-        jTableClientes.setModel(dtm);
-    }
-    
-    /*
-    //Ya no lo necesito
-    public void anadirCliente(Cliente cliente){
-        DefaultTableModel dtm=(DefaultTableModel)jTableClientes.getModel();
-        dtm.addRow(cliente.toArrayString());
-    }*/
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -51,14 +33,11 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTableClientes = new javax.swing.JTable();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenuItemAlta = new javax.swing.JMenuItem();
+        jTable1 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jTableClientes.setModel(new javax.swing.table.DefaultTableModel(
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -69,45 +48,27 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTableClientes);
-
-        jMenu1.setText("Clientes");
-
-        jMenuItemAlta.setText("Alta");
-        jMenuItemAlta.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItemAltaActionPerformed(evt);
-            }
-        });
-        jMenu1.add(jMenuItemAlta);
-
-        jMenuBar1.add(jMenu1);
-
-        setJMenuBar(jMenuBar1);
+        jScrollPane1.setViewportView(jTable1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 485, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 322, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jMenuItemAltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemAltaActionPerformed
-        
-        DialogoAlta dialogoAlta=new DialogoAlta(this,true);
-        dialogoAlta.setVisible(true);
-        refrescarTabla();
-        
-    }//GEN-LAST:event_jMenuItemAltaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -145,10 +106,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItemAlta;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTableClientes;
+    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }
