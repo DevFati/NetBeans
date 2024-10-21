@@ -5,19 +5,43 @@
  */
 package ejemplovalidacion.interfaz;
 
+import java.util.Locale;
 import javax.swing.JOptionPane;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
+import javax.swing.plaf.basic.BasicMenuUI;
+import org.netbeans.validation.api.builtin.stringvalidation.StringValidators;
+import org.netbeans.validation.api.ui.ValidationGroup;
 
 /**
  *
  * @author Tarde
  */
-public class ValidacionTradicional extends javax.swing.JFrame {
+public class ValidacionLibreria extends javax.swing.JFrame {
 
     /**
      * Creates new form ValidacionTradicional
      */
-    public ValidacionTradicional() {
+    public ValidacionLibreria() {
         initComponents();
+        jButtonAceptar.setEnabled(false);
+        ValidationGroup group=validationPanel.getValidationGroup();
+        group.add(jTextFieldNombre, StringValidators.REQUIRE_NON_EMPTY_STRING);
+        group.add(jTextFieldEdad, StringValidators.REQUIRE_VALID_INTEGER);
+
+        validationPanel.addChangeListener(new ChangeListener() {
+            @Override
+            public void stateChanged(ChangeEvent ce) {
+                if(validationPanel.getProblem()==null){
+                    jButtonAceptar.setEnabled(true);
+                }else{
+                    jButtonAceptar.setEnabled(false);
+                  //Mensaje de ayuda  
+                JOptionPane.showMessageDialog(null, validationPanel.getProblem().getMessage());
+
+                }
+            }
+        });
     }
 
     /**
@@ -34,12 +58,17 @@ public class ValidacionTradicional extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jTextFieldEdad = new javax.swing.JTextField();
         jButtonAceptar = new javax.swing.JButton();
+        validationPanel = new org.netbeans.validation.api.ui.swing.ValidationPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setText("Nombre: ");
 
+        jTextFieldNombre.setName("nombre"); // NOI18N
+
         jLabel2.setText("Edad: ");
+
+        jTextFieldEdad.setName("edad"); // NOI18N
 
         jButtonAceptar.setText("Aceptar");
         jButtonAceptar.addActionListener(new java.awt.event.ActionListener() {
@@ -48,13 +77,15 @@ public class ValidacionTradicional extends javax.swing.JFrame {
             }
         });
 
+        validationPanel.setName(""); // NOI18N
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(43, 43, 43)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(jButtonAceptar)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -63,13 +94,16 @@ public class ValidacionTradicional extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jTextFieldNombre)
-                            .addComponent(jTextFieldEdad, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE))))
+                            .addComponent(jTextFieldEdad, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE)))
+                    .addComponent(validationPanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(107, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(48, 48, 48)
+                .addContainerGap()
+                .addComponent(validationPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(8, 8, 8)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jTextFieldNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
@@ -86,31 +120,10 @@ public class ValidacionTradicional extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAceptarActionPerformed
-        if(ValidarFormulario()){
-            JOptionPane.showMessageDialog(this, "Formulario correcto");
-        }
+        
     }//GEN-LAST:event_jButtonAceptarActionPerformed
 
-    private boolean ValidarFormulario(){
-        
-        String nombre= jTextFieldNombre.getText();
-        
-        if(nombre== null || "".equals(nombre)){
-            JOptionPane.showMessageDialog(this, "El campo nombre no puede estar vacio","Error",JOptionPane.ERROR_MESSAGE);
-            return false;
-        }
-        
-        try{
-        Integer.parseInt(jTextFieldEdad.getText());
-        }
-        catch(NumberFormatException n){
-            JOptionPane.showMessageDialog(this, "El campo edad tiene que ser un entero","Error",JOptionPane.ERROR_MESSAGE);
-            return false;
-        }
-        return true;
-    
-        
-    }
+  
     /**
      * @param args the command line arguments
      */
@@ -128,20 +141,22 @@ public class ValidacionTradicional extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ValidacionTradicional.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ValidacionLibreria.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ValidacionTradicional.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ValidacionLibreria.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ValidacionTradicional.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ValidacionLibreria.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ValidacionTradicional.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ValidacionLibreria.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ValidacionTradicional().setVisible(true);
+                Locale.setDefault(new Locale("es","ES"));
+                new ValidacionLibreria().setVisible(true);
             }
         });
     }
@@ -152,5 +167,6 @@ public class ValidacionTradicional extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JTextField jTextFieldEdad;
     private javax.swing.JTextField jTextFieldNombre;
+    private org.netbeans.validation.api.ui.swing.ValidationPanel validationPanel;
     // End of variables declaration//GEN-END:variables
 }
