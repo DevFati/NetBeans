@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package jpanelimagen;
+package jpanellogo;
 
 import java.awt.Graphics;
 import java.io.File;
@@ -15,39 +15,36 @@ import javax.swing.JPanel;
  *
  * @author Tarde
  */
-public class JPanelImagen extends JPanel implements Serializable{
+public class JPanelLogo extends JPanel implements Serializable {
 
     /**
      * @param args the command line arguments
      */
-    private ImagenFondo imagenFondo;
-    public JPanelImagen() {
+   private File rutaImagen;
+
+    public JPanelLogo() {
+      
     }
 
-    public ImagenFondo getImagenFondo() {
-        return imagenFondo;
+    public File getRutaImagen() {
+        return rutaImagen;
     }
 
-    public void setImagenFondo(ImagenFondo imagenFondo) {
-        this.imagenFondo = imagenFondo;
+    public void setRutaImagen(File rutaImagen) {
+        this.rutaImagen = rutaImagen;
     }
-
-    
 
     @Override
     protected void paintComponent(Graphics grphcs) {
         super.paintComponent(grphcs); //To change body of generated methods, choose Tools | Templates.
         
-        if(imagenFondo.getRutaimagen()!=null && imagenFondo.getRutaimagen().exists()){
-          ImageIcon imageIcon=new ImageIcon(imagenFondo.getRutaimagen().getAbsolutePath());
-        grphcs.drawImage(imageIcon.getImage(), 0, 0, null);   
+        if(rutaImagen!=null && rutaImagen.exists()){
+            ImageIcon imageIcon=new ImageIcon(rutaImagen.getAbsolutePath());
+            grphcs.drawImage(imageIcon.getImage(), 0, 0, null);
         }
-      
-    
-    
     }
-
+   
     
- 
+   
     
 }
