@@ -16,7 +16,7 @@ public class ImagenFondo implements Serializable {
     private File rutaimagen;
     private Float opacidad;
 
-    public ImagenFondo(File rutaimagen, Float opacidad) {
+    public ImagenFondo(File rutaimagen, Float opacidad) {       
         this.rutaimagen = rutaimagen;
         this.opacidad = opacidad;
     }
