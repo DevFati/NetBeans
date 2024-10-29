@@ -7,6 +7,7 @@ package jpanelimagen;
 
 import java.awt.Component;
 import java.beans.PropertyEditorSupport;
+import java.io.File;
 
 /**
  *
@@ -29,7 +30,11 @@ public class ImagenFondoPropertyEditorSupport extends PropertyEditorSupport {
 
     @Override
     public String getJavaInitializationString() {
-        return super.getJavaInitializationString(); //To change body of generated methods, choose Tools | Templates.
+        ImagenFondo imagenFondo= imagenFondoPanel.getSelectedValue();
+        File rutaImagen= (File) imagenFondo.getRutaimagen();
+        String ruta=rutaImagen.getAbsolutePath();
+        ruta=ruta.replace('\\', '/');
+        return "new jpanelimagen.ImagenFondo("+"new java.io.File(\"+imagenFondo.getRutaimagen().getAbsolutePath()+\"), "+imagenFondo.getOpacidad()+"f)"; //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
