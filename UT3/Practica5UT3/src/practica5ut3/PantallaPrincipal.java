@@ -5,6 +5,8 @@
  */
 package practica5ut3;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Tarde
@@ -78,10 +80,10 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                                     .addComponent(jLabel1)
                                     .addComponent(jLabel2)
                                     .addComponent(jLabel3))
-                                .addGap(47, 47, 47)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jTextFieldAge, javax.swing.GroupLayout.DEFAULT_SIZE, 89, Short.MAX_VALUE)
-                                    .addComponent(jTextFieldName)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jTextFieldName, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextFieldAge, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addComponent(jTextFieldNick, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(142, 142, 142)
@@ -120,9 +122,32 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldAgeActionPerformed
 
     private void jButtonEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEnviarActionPerformed
-        
+        if(esNumero(jTextFieldAge.getText())){
+            int edad=Integer.parseInt(jTextFieldAge.getText());
+            
+            if(edad<=18){
+                JOptionPane.showMessageDialog( this , "Debe de tener más de 18 años", "PG-18" , JOptionPane.WARNING_MESSAGE );
+
+            }
+            
+        }else{
+            JOptionPane.showMessageDialog( this, "Debes introducir un número válido", "Valor no válido", JOptionPane.ERROR_MESSAGE );
+
+        }
     }//GEN-LAST:event_jButtonEnviarActionPerformed
 
+      //Método para verificar si la cadena es un número válido
+    private static boolean esNumero(String numero) {
+        //Si la cadena contiene solo dígitos del 0 al 9 devuelve true
+        if (numero.matches("[0-9]+")) {
+            return true;
+        } else {
+            //Si la cadena no es número válido, muestra un numero de error
+            System.out.println("Introduce un número válido!");
+            return false;
+        }
+
+    }
     /**
      * @param args the command line arguments
      */
