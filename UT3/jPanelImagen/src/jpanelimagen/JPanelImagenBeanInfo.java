@@ -9,7 +9,7 @@ import java.beans.*;
 
 /**
  *
- * @author Tarde
+ * @author fatmo
  */
 public class JPanelImagenBeanInfo extends SimpleBeanInfo {
 

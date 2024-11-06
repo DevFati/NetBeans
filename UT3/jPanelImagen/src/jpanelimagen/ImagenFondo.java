@@ -15,10 +15,20 @@ import java.io.Serializable;
 public class ImagenFondo implements Serializable {
     private File rutaimagen;
     private Float opacidad;
+    private Float saturacion;
 
-    public ImagenFondo(File rutaimagen, Float opacidad) {       
+    public ImagenFondo(File rutaimagen, Float opacidad,Float saturacion) {       
         this.rutaimagen = rutaimagen;
         this.opacidad = opacidad;
+        this.saturacion=saturacion;
+    }
+
+    public Float getSaturacion() {
+        return saturacion;
+    }
+
+    public void setSaturacion(Float saturacion) {
+        this.saturacion = saturacion;
     }
     
     

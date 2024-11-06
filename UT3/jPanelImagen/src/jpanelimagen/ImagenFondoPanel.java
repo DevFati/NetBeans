@@ -35,6 +35,8 @@ public class ImagenFondoPanel extends javax.swing.JPanel {
         jButtonAbrirRuta = new javax.swing.JButton();
         jLabelOpacidad = new javax.swing.JLabel();
         jSliderOpacidad = new javax.swing.JSlider();
+        jLabelSaturacion = new javax.swing.JLabel();
+        jSliderSaturacion = new javax.swing.JSlider();
 
         jLabelImagen.setText("Imagen: ");
 
@@ -48,6 +50,8 @@ public class ImagenFondoPanel extends javax.swing.JPanel {
         });
 
         jLabelOpacidad.setText("Opacidad: ");
+
+        jLabelSaturacion.setText("Saturación: ");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -63,10 +67,14 @@ public class ImagenFondoPanel extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButtonAbrirRuta))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabelOpacidad, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabelOpacidad, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jSliderOpacidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(127, Short.MAX_VALUE))
+                        .addComponent(jSliderOpacidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabelSaturacion)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jSliderSaturacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(99, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -80,7 +88,11 @@ public class ImagenFondoPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabelOpacidad, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jSliderOpacidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(202, Short.MAX_VALUE))
+                .addGap(26, 26, 26)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabelSaturacion)
+                    .addComponent(jSliderSaturacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(150, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -98,15 +110,17 @@ public class ImagenFondoPanel extends javax.swing.JPanel {
     public ImagenFondo getSelectedValue(){
         File f= new File(jTextFieldRuta.getText());
         Float opacidad = jSliderOpacidad.getValue()/100f;
-        
-        return new ImagenFondo(f,opacidad);
+        Float saturacion=jSliderSaturacion.getValue()/100f;
+        return new ImagenFondo(f,opacidad,saturacion);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonAbrirRuta;
     private javax.swing.JLabel jLabelImagen;
     private javax.swing.JLabel jLabelOpacidad;
+    private javax.swing.JLabel jLabelSaturacion;
     private javax.swing.JSlider jSliderOpacidad;
+    private javax.swing.JSlider jSliderSaturacion;
     private javax.swing.JTextField jTextFieldRuta;
     // End of variables declaration//GEN-END:variables
 }
