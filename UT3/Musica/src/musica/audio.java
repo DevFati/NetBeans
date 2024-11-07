@@ -29,7 +29,7 @@ public class audio extends javax.swing.JFrame {
     private void initComponents() {
 
         jButton1 = new javax.swing.JButton();
-        jPanelImagen1 = new jpanelimagen.JPanelImagen();
+        jPanelImagen2 = new jpanelimagen.JPanelImagen();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -45,17 +45,17 @@ public class audio extends javax.swing.JFrame {
             }
         });
 
-        jPanelImagen1.setImagenFondo(new jpanelimagen.ImagenFondo(new java.io.File("C:/Users/fatmo/OneDrive/Documentos/2024-2025/NetBeans/UT3/Musica/src/imgs/png-clipart-computer-icons-font-awesome-microphone-sound-sound-wave-electronics-microphone.jpg"), 0.5f));
+        jPanelImagen2.setImagenFondo(new jpanelimagen.ImagenFondo(new java.io.File("C:/Users/Tarde/Documents/NetBeans/UT3/Musica/src/imgs/png-clipart-computer-icons-font-awesome-microphone-sound-sound-wave-electronics-microphone.jpg"), 0.88f, 0.82f));
 
-        javax.swing.GroupLayout jPanelImagen1Layout = new javax.swing.GroupLayout(jPanelImagen1);
-        jPanelImagen1.setLayout(jPanelImagen1Layout);
-        jPanelImagen1Layout.setHorizontalGroup(
-            jPanelImagen1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout jPanelImagen2Layout = new javax.swing.GroupLayout(jPanelImagen2);
+        jPanelImagen2.setLayout(jPanelImagen2Layout);
+        jPanelImagen2Layout.setHorizontalGroup(
+            jPanelImagen2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 0, Short.MAX_VALUE)
         );
-        jPanelImagen1Layout.setVerticalGroup(
-            jPanelImagen1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 239, Short.MAX_VALUE)
+        jPanelImagen2Layout.setVerticalGroup(
+            jPanelImagen2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 303, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -68,15 +68,15 @@ public class audio extends javax.swing.JFrame {
                 .addContainerGap(158, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanelImagen1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanelImagen2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addComponent(jPanelImagen1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addContainerGap()
+                .addComponent(jPanelImagen2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(jButton1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -131,6 +131,6 @@ public class audio extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private jpanelimagen.JPanelImagen jPanelImagen1;
+    private jpanelimagen.JPanelImagen jPanelImagen2;
     // End of variables declaration//GEN-END:variables
 }
