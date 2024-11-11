@@ -7,6 +7,7 @@ package jpanelimagen;
 
 import java.io.File;
 import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -52,6 +53,10 @@ public class ImagenFondoPanel extends javax.swing.JPanel {
         jLabelOpacidad.setText("Opacidad: ");
 
         jLabelSaturacion.setText("Saturación: ");
+
+        jSliderSaturacion.setMaximum(200);
+        jSliderSaturacion.setToolTipText("");
+        jSliderSaturacion.setValue(100);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -113,6 +118,7 @@ public class ImagenFondoPanel extends javax.swing.JPanel {
         Float saturacion=jSliderSaturacion.getValue()/100f;
         return new ImagenFondo(f,opacidad,saturacion);
     }
+   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonAbrirRuta;

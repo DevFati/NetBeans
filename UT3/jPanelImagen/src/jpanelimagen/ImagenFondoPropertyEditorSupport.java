@@ -18,6 +18,7 @@ public class ImagenFondoPropertyEditorSupport extends PropertyEditorSupport {
     private ImagenFondoPanel imagenFondoPanel = new ImagenFondoPanel();
     
     
+    
     @Override
     public boolean supportsCustomEditor() {
         return true; //To change body of generated methods, choose Tools | Templates.
@@ -28,13 +29,13 @@ public class ImagenFondoPropertyEditorSupport extends PropertyEditorSupport {
         return imagenFondoPanel; //To change body of generated methods, choose Tools | Templates.
     }
 
-    @Override
+     @Override
     public String getJavaInitializationString() {
-        ImagenFondo imagenFondo= imagenFondoPanel.getSelectedValue();
-        File rutaImagen= (File) imagenFondo.getRutaimagen();
-        String ruta=rutaImagen.getAbsolutePath();
-        ruta=ruta.replace('\\', '/');
-        return "new jpanelimagen.ImagenFondo(new java.io.File(\""+ruta+"\"), "+imagenFondo.getOpacidad()+"f, "+imagenFondo.getSaturacion()+"f)"; //To change body of generated methods, choose Tools | Templates.
+        ImagenFondo imagenFondo =  imagenFondoPanel.getSelectedValue(); 
+        File rutaImagen = imagenFondo.getRutaimagen();
+        String ruta = rutaImagen.getAbsolutePath().replace("\\", "/");
+        return "new jpanelimagen.ImagenFondo(new java.io.File(\"" + ruta + "\"), "  + imagenFondo.getOpacidad() + "f, " 
+                   + imagenFondo.getSaturacion() + "f)";     
     }
 
     @Override

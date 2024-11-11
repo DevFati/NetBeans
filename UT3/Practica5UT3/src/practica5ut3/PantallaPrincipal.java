@@ -7,6 +7,7 @@ package practica5ut3;
 
 import java.awt.Color;
 import javax.swing.JOptionPane;
+import jpanelimagen.ImagenFondo;
 
 /**
  *
@@ -19,6 +20,10 @@ public class PantallaPrincipal extends javax.swing.JFrame {
      */
     public PantallaPrincipal() {
         initComponents();
+        
+       
+        
+        
         jButtonEnviar.setBackground(new Color(52, 152, 219));
     }
 
@@ -31,20 +36,25 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanelImagen1 = new jpanelimagen.JPanelImagen();
-        jLabel1 = new javax.swing.JLabel();
-        jTextFieldName = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        jTextFieldNick = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        jTextFieldAge = new javax.swing.JTextField();
+        jPanelImagen2 = new jpanelimagen.JPanelImagen();
         jLabel4 = new javax.swing.JLabel();
-        jTextFieldPassword = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         jButtonEnviar = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        jTextFieldPassword = new javax.swing.JTextField();
+        jTextFieldAge = new javax.swing.JTextField();
+        jTextFieldNick = new javax.swing.JTextField();
+        jTextFieldName = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanelImagen1.setImagenFondo(new jpanelimagen.ImagenFondo(new java.io.File("C:/Users/fatmo/OneDrive/Documentos/2024-2025/NetBeans/UT3/Practica5UT3/src/imgs/1-4a9eb30e.png"), 0.67f));
+        jPanelImagen2.setImagenFondo(new jpanelimagen.ImagenFondo(new java.io.File("C:/Users/fatmo/OneDrive/Documentos/2024-2025/NetBeans/UT3/Practica5UT3/src/imgs/1-4a9eb30e.png"), 0.5f, 1.0f));
+
+        jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 0, 102));
+        jLabel4.setText("PASSWORD");
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 102));
@@ -53,20 +63,6 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 102));
         jLabel2.setText("NICK");
-
-        jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 102));
-        jLabel3.setText("AGE");
-
-        jTextFieldAge.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldAgeActionPerformed(evt);
-            }
-        });
-
-        jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 0, 102));
-        jLabel4.setText("PASSWORD");
 
         jButtonEnviar.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jButtonEnviar.setForeground(new java.awt.Color(255, 255, 255));
@@ -77,72 +73,78 @@ public class PantallaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jPanelImagen1Layout = new javax.swing.GroupLayout(jPanelImagen1);
-        jPanelImagen1.setLayout(jPanelImagen1Layout);
-        jPanelImagen1Layout.setHorizontalGroup(
-            jPanelImagen1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelImagen1Layout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addGroup(jPanelImagen1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanelImagen1Layout.createSequentialGroup()
-                        .addGroup(jPanelImagen1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
+        jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 0, 102));
+        jLabel3.setText("AGE");
+
+        jTextFieldPassword.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldPasswordActionPerformed(evt);
+            }
+        });
+
+        jTextFieldAge.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldAgeActionPerformed(evt);
+            }
+        });
+
+        jTextFieldName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldNameActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanelImagen2Layout = new javax.swing.GroupLayout(jPanelImagen2);
+        jPanelImagen2.setLayout(jPanelImagen2Layout);
+        jPanelImagen2Layout.setHorizontalGroup(
+            jPanelImagen2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelImagen2Layout.createSequentialGroup()
+                .addGroup(jPanelImagen2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelImagen2Layout.createSequentialGroup()
+                        .addGap(54, 54, 54)
+                        .addGroup(jPanelImagen2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel3)
                             .addComponent(jLabel2)
-                            .addComponent(jLabel3))
-                        .addGap(67, 67, 67)
-                        .addGroup(jPanelImagen1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanelImagen1Layout.createSequentialGroup()
-                                .addGroup(jPanelImagen1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextFieldNick, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextFieldName, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addContainerGap(174, Short.MAX_VALUE))
-                            .addGroup(jPanelImagen1Layout.createSequentialGroup()
-                                .addComponent(jTextFieldAge, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))))
-                    .addGroup(jPanelImagen1Layout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextFieldPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))))
-            .addGroup(jPanelImagen1Layout.createSequentialGroup()
-                .addGap(209, 209, 209)
-                .addComponent(jButtonEnviar)
-                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(jLabel1))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanelImagen2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextFieldName, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE)
+                            .addComponent(jTextFieldNick)
+                            .addComponent(jTextFieldAge)
+                            .addComponent(jTextFieldPassword)))
+                    .addGroup(jPanelImagen2Layout.createSequentialGroup()
+                        .addGap(169, 169, 169)
+                        .addComponent(jButtonEnviar)))
+                .addGap(253, 253, 253))
         );
-        jPanelImagen1Layout.setVerticalGroup(
-            jPanelImagen1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelImagen1Layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addGroup(jPanelImagen1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+        jPanelImagen2Layout.setVerticalGroup(
+            jPanelImagen2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelImagen2Layout.createSequentialGroup()
+                .addGap(35, 35, 35)
+                .addGroup(jPanelImagen2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(jTextFieldName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26)
-                .addGroup(jPanelImagen1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanelImagen2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelImagen2Layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanelImagen2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel3)
+                            .addComponent(jTextFieldAge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanelImagen2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel4)
+                            .addComponent(jTextFieldPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jTextFieldNick, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26)
-                .addGroup(jPanelImagen1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3)
-                    .addComponent(jTextFieldAge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(27, 27, 27)
-                .addGroup(jPanelImagen1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(jTextFieldPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
                 .addComponent(jButtonEnviar)
-                .addContainerGap())
+                .addGap(66, 66, 66))
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelImagen1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelImagen1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        getContentPane().add(jPanelImagen2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 330));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -175,6 +177,14 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_jButtonEnviarActionPerformed
+
+    private void jTextFieldPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldPasswordActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldPasswordActionPerformed
+
+    private void jTextFieldNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldNameActionPerformed
 
       //Método para verificar si la cadena es un número válido
     private static boolean esNumero(String numero) {
@@ -229,7 +239,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private jpanelimagen.JPanelImagen jPanelImagen1;
+    private jpanelimagen.JPanelImagen jPanelImagen2;
     private javax.swing.JTextField jTextFieldAge;
     private javax.swing.JTextField jTextFieldName;
     private javax.swing.JTextField jTextFieldNick;

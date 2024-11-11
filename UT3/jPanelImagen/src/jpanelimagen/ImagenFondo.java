@@ -6,6 +6,11 @@
 package jpanelimagen;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.io.Serializable;
 
 /**
@@ -17,6 +22,10 @@ public class ImagenFondo implements Serializable {
     private Float opacidad;
     private Float saturacion;
 
+ 
+
+    
+    
     public ImagenFondo(File rutaimagen, Float opacidad,Float saturacion) {       
         this.rutaimagen = rutaimagen;
         this.opacidad = opacidad;
@@ -48,6 +57,9 @@ public class ImagenFondo implements Serializable {
     public void setOpacidad(Float opacidad) {
         this.opacidad = opacidad;
     }
+    
+  
+
     
     
     

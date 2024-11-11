@@ -10,15 +10,9 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.awt.image.RescaleOp;
-import java.io.File;
 import java.io.IOException;
 import java.io.Serializable;
-import javafx.embed.swing.SwingFXUtils;
-import javafx.scene.effect.ColorAdjust;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javax.imageio.ImageIO;
-import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
 /**
@@ -32,8 +26,7 @@ public class JPanelImagen extends JPanel implements Serializable {
      */
     private ImagenFondo imagenFondo;
 
-    public JPanelImagen() {
-    }
+  
 
     public ImagenFondo getImagenFondo() {
         return imagenFondo;
@@ -41,6 +34,7 @@ public class JPanelImagen extends JPanel implements Serializable {
 
     public void setImagenFondo(ImagenFondo imagenFondo) {
         this.imagenFondo = imagenFondo;
+        repaint(); //volvemos a dibujar si se elige otra imagen de fondo 
     }
 
     @Override
@@ -54,9 +48,18 @@ public class JPanelImagen extends JPanel implements Serializable {
             try{
                 //Cargar la imagen desde el archivo 
             BufferedImage b=ImageIO.read(imagenFondo.getRutaimagen());
+            
+            //verificar si la imagen es indexada y convertir a RGB si no es asi
+            if(b.getType()==BufferedImage.TYPE_BYTE_INDEXED){
+                BufferedImage rgb=new BufferedImage(b.getWidth(), b.getHeight(), BufferedImage.TYPE_INT_RGB);
+                Graphics2D g2d=rgb.createGraphics();
+                g2d.drawImage(b, 0,0, null);
+                g2d.dispose();
+                b=rgb;
+            }
             //Ajuste de saturacion
             float saturacion=imagenFondo.getSaturacion();
-            RescaleOp op=new RescaleOp(1f,saturacion,null);
+            RescaleOp op=new RescaleOp(saturacion,1f,null);
             
          
                 //generamos la imagen ajustada medianteun "snapshot" de imageview
