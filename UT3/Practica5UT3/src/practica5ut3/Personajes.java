@@ -41,12 +41,12 @@ public class Personajes extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jPanelImagen1.setImagenFondo(new jpanelimagen.ImagenFondo(new java.io.File("C:/Users/fatmo/OneDrive/Documentos/2024-2025/NetBeans/UT3/Practica5UT3/src/imgs/fondo3.png"), 0.5f, 1.0f));
+        jPanelImagen1.setImagenFondo(new jpanelimagen.ImagenFondo(new java.io.File("C:/Users/Tarde/Documents/NetBeans/UT3/Practica5UT3/src/imgs/fondo22.png"), 0.5f, 1.0f));
 
         jPanel1.setPreferredSize(new java.awt.Dimension(400, 300));
         jPanel1.setLayout(new java.awt.GridLayout(2, 4));
 
-        jPanelImagen2.setImagenFondo(new jpanelimagen.ImagenFondo(new java.io.File("C:/Users/fatmo/OneDrive/Documentos/2024-2025/NetBeans/UT3/Practica5UT3/src/imgs/uno.png"), 0.5f, 1.0f));
+        jPanelImagen2.setImagenFondo(new jpanelimagen.ImagenFondo(new java.io.File("C:/Users/Tarde/Documents/NetBeans/UT3/Practica5UT3/src/imgs/1.png"), 0.5f, 1.0f));
 
         javax.swing.GroupLayout jPanelImagen2Layout = new javax.swing.GroupLayout(jPanelImagen2);
         jPanelImagen2.setLayout(jPanelImagen2Layout);
@@ -61,7 +61,7 @@ public class Personajes extends javax.swing.JDialog {
 
         jPanel1.add(jPanelImagen2);
 
-        jPanelImagen3.setImagenFondo(new jpanelimagen.ImagenFondo(new java.io.File("C:/Users/fatmo/OneDrive/Documentos/2024-2025/NetBeans/UT3/Practica5UT3/src/imgs/dos.png"), 0.5f, 1.0f));
+        jPanelImagen3.setImagenFondo(new jpanelimagen.ImagenFondo(new java.io.File("C:/Users/Tarde/Documents/NetBeans/UT3/Practica5UT3/src/imgs/cuatro.png"), 0.5f, 1.0f));
 
         javax.swing.GroupLayout jPanelImagen3Layout = new javax.swing.GroupLayout(jPanelImagen3);
         jPanelImagen3.setLayout(jPanelImagen3Layout);
@@ -76,7 +76,7 @@ public class Personajes extends javax.swing.JDialog {
 
         jPanel1.add(jPanelImagen3);
 
-        jPanelImagen4.setImagenFondo(new jpanelimagen.ImagenFondo(new java.io.File("C:/Users/fatmo/OneDrive/Documentos/2024-2025/NetBeans/UT3/Practica5UT3/src/imgs/tres.png"), 1.0f, 1.0f));
+        jPanelImagen4.setImagenFondo(new jpanelimagen.ImagenFondo(new java.io.File("C:/Program Files/NetBeans 8.2"), 0.5f, 1.0f));
 
         javax.swing.GroupLayout jPanelImagen4Layout = new javax.swing.GroupLayout(jPanelImagen4);
         jPanelImagen4.setLayout(jPanelImagen4Layout);

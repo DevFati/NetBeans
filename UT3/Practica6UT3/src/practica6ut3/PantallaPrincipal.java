@@ -6,6 +6,7 @@
 package practica6ut3;
 
 import java.applet.AudioClip;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 /**
@@ -20,6 +21,8 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     public PantallaPrincipal() {
         initComponents();
         
+                        this.setIconImage(new ImageIcon(getClass().getResource("/imgs/grupo-animales-salvajes_1308-43813.png")).getImage());
+
     }
 
     /**
