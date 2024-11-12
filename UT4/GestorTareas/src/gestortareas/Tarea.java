@@ -5,6 +5,7 @@
  */
 package gestortareas;
 
+import java.applet.AudioClip;
 import javax.swing.JLabel;
 
 /**
@@ -38,10 +39,11 @@ public class Tarea extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         btnEliminar = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        btnEditar = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 255), 2));
-        setPreferredSize(new java.awt.Dimension(240, 80));
+        setPreferredSize(new java.awt.Dimension(280, 80));
         setLayout(new java.awt.BorderLayout());
 
         jLabelMensaje.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -53,7 +55,7 @@ public class Tarea extends javax.swing.JPanel {
         });
         add(jLabelMensaje, java.awt.BorderLayout.CENTER);
 
-        jPanel1.setLayout(new java.awt.GridLayout());
+        jPanel1.setLayout(new java.awt.GridLayout(1, 3, 1, 0));
 
         btnEliminar.setBackground(new java.awt.Color(255, 51, 51));
         btnEliminar.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
@@ -74,20 +76,42 @@ public class Tarea extends javax.swing.JPanel {
         jButton1.setText("Completada");
         jButton1.setBorderPainted(false);
         jButton1.setFocusPainted(false);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButton1);
+
+        btnEditar.setBackground(new java.awt.Color(51, 51, 255));
+        btnEditar.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        btnEditar.setForeground(new java.awt.Color(255, 255, 255));
+        btnEditar.setText("Editar");
+        btnEditar.setPreferredSize(new java.awt.Dimension(50, 25));
+        btnEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnEditar);
 
         add(jPanel1, java.awt.BorderLayout.PAGE_END);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
        java.awt.Container padre=this.getParent();
-       
+       GestorTareas p=new GestorTareas();
+       p.setContadorT(p.getContadorT()-1);
        padre.remove(this);
        padre.revalidate();
        padre.repaint();
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void jLabelMensajeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelMensajeMouseClicked
+      
+    }//GEN-LAST:event_jLabelMensajeMouseClicked
+
+    private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
         GestorTareas p=new GestorTareas(); 
         Editar ed=new Editar(p, jLabelMensaje.getText());
         ed.setVisible(true);
@@ -102,9 +126,13 @@ public class Tarea extends javax.swing.JPanel {
         padre.revalidate();
        padre.repaint();
             
-        
-        
-    }//GEN-LAST:event_jLabelMensajeMouseClicked
+    }//GEN-LAST:event_btnEditarActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        AudioClip Sound;
+        Sound=java.applet.Applet.newAudioClip(getClass().getResource("/audios/notif.wav"));
+        Sound.play();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
    
     public void nuevoMensaje(String m){
@@ -112,6 +140,7 @@ public class Tarea extends javax.swing.JPanel {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnEditar;
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabelMensaje;

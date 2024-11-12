@@ -5,6 +5,7 @@
  */
 package gestortareas;
 
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 /**
@@ -18,7 +19,9 @@ public class LogIn extends javax.swing.JFrame {
      */
     public LogIn() {
         initComponents();
-        this.oculto.setVisible(false);
+        this.oculto.setVisible(false);  
+        this.setIconImage(new ImageIcon(getClass().getResource("/imgs/icon.png")).getImage());
+        
     }
 
     /**
@@ -109,11 +112,20 @@ public class LogIn extends javax.swing.JFrame {
     }//GEN-LAST:event_txt_userActionPerformed
 
     private void jLabelLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelLoginMouseClicked
-        String usuario, contraseña=null;
+        String usuario, contraseña;
         usuario=txt_user.getText();
-        contraseña=txt_pass.getText();
+        contraseña=String.valueOf(txt_pass.getPassword());
         if(usuario.equals("admin") && contraseña.equals("admin")){
             JOptionPane.showMessageDialog(this, "Accediste con exito", "Login correcto", WIDTH);
+            
+            this.dispose();
+            GestorTareas tareas=new GestorTareas(this,true);
+                // Hacemos visible la ventana
+                tareas.setVisible(true);
+            
+            
+            
+              
         }else{
                 JOptionPane.showMessageDialog(this, "Error.Revisa login o contraseña", "Login incorrecto", JOptionPane.ERROR_MESSAGE);
                 txt_user.setText("");
