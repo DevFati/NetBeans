@@ -13,35 +13,29 @@ import javax.swing.JTextArea;
 
 /**
  *
- * @author fatmo
+ * @author Fatima Mortahil Chachou
  */
 public class Editar extends JDialog {
 
     /**
      * Creates new form Editar
      */
-    
-    public Editar(JFrame padre,String contenido) {
+    public Editar(JFrame padre, String contenido) {
         super(padre, true);
         initComponents();
-        this.jTextArea2.setText(contenido);
-        
-        
+        //Hace que en el textArea se muestre lo que el usuario metio anteriormente 
+        //en la tarea.
+        this.jTextArea.setText(contenido);
+
     }
 
     public JTextArea getjTextArea2() {
-        return jTextArea2;
+        return jTextArea;
     }
 
     public void setjTextArea2(JTextArea jTextArea2) {
-        this.jTextArea2 = jTextArea2;
+        this.jTextArea = jTextArea2;
     }
-
-   
-    
-    
-
-   
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -52,77 +46,77 @@ public class Editar extends JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        jPanelGeneral = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea2 = new javax.swing.JTextArea();
-        jPanel2 = new javax.swing.JPanel();
-        jButton2 = new javax.swing.JButton();
+        jTextArea = new javax.swing.JTextArea();
+        jPanelBoton = new javax.swing.JPanel();
+        jButtonCerrar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(300, 200));
         setResizable(false);
 
-        jPanel1.setPreferredSize(new java.awt.Dimension(300, 200));
-        jPanel1.setLayout(new java.awt.BorderLayout());
+        jPanelGeneral.setPreferredSize(new java.awt.Dimension(300, 200));
+        jPanelGeneral.setLayout(new java.awt.BorderLayout());
 
-        jTextArea2.setColumns(20);
-        jTextArea2.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jTextArea2.setLineWrap(true);
-        jTextArea2.setRows(5);
-        jTextArea2.setWrapStyleWord(true);
-        jScrollPane2.setViewportView(jTextArea2);
+        jTextArea.setColumns(20);
+        jTextArea.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jTextArea.setLineWrap(true);
+        jTextArea.setRows(5);
+        jTextArea.setWrapStyleWord(true);
+        jScrollPane2.setViewportView(jTextArea);
 
-        jPanel1.add(jScrollPane2, java.awt.BorderLayout.CENTER);
+        jPanelGeneral.add(jScrollPane2, java.awt.BorderLayout.CENTER);
 
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel2.setPreferredSize(new java.awt.Dimension(300, 50));
-        jPanel2.setLayout(new java.awt.GridLayout());
+        jPanelBoton.setBackground(new java.awt.Color(255, 255, 255));
+        jPanelBoton.setPreferredSize(new java.awt.Dimension(300, 50));
+        jPanelBoton.setLayout(new java.awt.GridLayout(1, 0));
 
-        jButton2.setBackground(new java.awt.Color(0, 102, 204));
-        jButton2.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(0, 0, 102));
-        jButton2.setText("Cerrar");
-        jButton2.setBorderPainted(false);
-        jButton2.setFocusPainted(false);
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        jButtonCerrar.setBackground(new java.awt.Color(0, 102, 204));
+        jButtonCerrar.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jButtonCerrar.setForeground(new java.awt.Color(0, 0, 102));
+        jButtonCerrar.setText("Guardar cambios");
+        jButtonCerrar.setBorderPainted(false);
+        jButtonCerrar.setFocusPainted(false);
+        jButtonCerrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                jButtonCerrarActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton2);
+        jPanelBoton.add(jButtonCerrar);
 
-        jPanel1.add(jPanel2, java.awt.BorderLayout.PAGE_END);
+        jPanelGeneral.add(jPanelBoton, java.awt.BorderLayout.PAGE_END);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanelGeneral, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
+            .addComponent(jPanelGeneral, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
- 
+    private void jButtonCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCerrarActionPerformed
+        //Cierra el jDialog 
         dispose();
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_jButtonCerrarActionPerformed
 
-    public String textomod(){
-        return this.jTextArea2.getText();
+    public String textomod() {
+        //recoge lo que el usuario introdujo en el jTextArea
+        return this.jTextArea.getText();
     }
-   
-   
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton2;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
+    private javax.swing.JButton jButtonCerrar;
+    private javax.swing.JPanel jPanelBoton;
+    private javax.swing.JPanel jPanelGeneral;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextArea jTextArea2;
+    private javax.swing.JTextArea jTextArea;
     // End of variables declaration//GEN-END:variables
 }

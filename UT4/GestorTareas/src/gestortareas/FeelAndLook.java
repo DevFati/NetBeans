@@ -10,15 +10,18 @@ import org.jvnet.substance.SubstanceLookAndFeel;
 
 /**
  *
- * @author fatmo
+ * @author Fatima Mortahil Chachou
  */
 public class FeelAndLook {
-      public static void main(String[] args) {
-        JFrame.setDefaultLookAndFeelDecorated(true);
-        SubstanceLookAndFeel.setSkin("org.jvnet.substance.skin.CremeCoffeeSkin");
-   
 
-        LogIn v=new LogIn();
+    public static void main(String[] args) {
+        //Aqui configuramos para que las ventanas usen "Look and Feel" 
+        JFrame.setDefaultLookAndFeelDecorated(true);
+        //Cambiamos el estilo visual. 
+        SubstanceLookAndFeel.setSkin("org.jvnet.substance.skin.CremeCoffeeSkin");
+
+        //Instanciamos la ventana LogIn y la hacemos visible
+        LogIn v = new LogIn();
         v.setVisible(true);
     }
 }

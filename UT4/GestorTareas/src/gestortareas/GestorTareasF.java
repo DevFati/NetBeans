@@ -12,11 +12,13 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author fatmo
+ * @author Fatima Mortahil Chachou
  */
 public class GestorTareasF extends javax.swing.JFrame {
 
+    //Modelo de tabla para almacenar las tareas completadas 
     private DefaultTableModel modeloTabla;
+    //Contador para establecer y controlar las tareas en el panel principal. 
     int contadorT = 0;
 
     /**
@@ -26,20 +28,21 @@ public class GestorTareasF extends javax.swing.JFrame {
 
         initComponents();
 
-        modeloTabla = new DefaultTableModel(){
-             @Override
-        public boolean isCellEditable(int row, int column) {
-            return false; 
-        }
+        modeloTabla = new DefaultTableModel() { //Define el modelo de la tabla 
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false; //Evita que las celdas de la tabla sean editables. 
+            }
         };
-        modeloTabla.addColumn("Tarea completada");
-        modeloTabla.addColumn("Fecha finalización");
-        jTabla.setModel(modeloTabla);
+        modeloTabla.addColumn("Tarea completada"); //Añade columna para la tarea 
+        modeloTabla.addColumn("Fecha finalización"); //Añade columna para la fecha
+        jTabla.setModel(modeloTabla); //Asigna el modelo de la tabla a jTable
+        //Poner el icono a la ventana 
         this.setIconImage(new ImageIcon(getClass().getResource("/imgs/icon.png")).getImage());
-        btnañadir.setBackground(new Color(0,0,102));
+        //cambia el fondo al boton aunque al usar laf no se aplicaria. 
+        btnañadir.setBackground(new Color(0, 0, 102));
     }
-    
-    
+
     public int getContadorT() {
         return contadorT;
     }
@@ -57,7 +60,7 @@ public class GestorTareasF extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTabbedPane1 = new javax.swing.JTabbedPane();
+        jTabbedPane = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         btnañadir = new javax.swing.JButton();
@@ -78,19 +81,14 @@ public class GestorTareasF extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
 
-        jTabbedPane1.setBackground(new java.awt.Color(255, 255, 255));
-        jTabbedPane1.setFocusable(false);
-        jTabbedPane1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jTabbedPane.setBackground(new java.awt.Color(255, 255, 255));
+        jTabbedPane.setFocusable(false);
+        jTabbedPane.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setToolTipText("");
 
         jPanel3.setBackground(new java.awt.Color(153, 204, 255));
-        jPanel3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jPanel3MouseEntered(evt);
-            }
-        });
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnañadir.setBackground(new java.awt.Color(0, 0, 102));
@@ -133,7 +131,7 @@ public class GestorTareasF extends javax.swing.JFrame {
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 390, Short.MAX_VALUE)
         );
 
-        jTabbedPane1.addTab("Tareas pendientes", jPanel1);
+        jTabbedPane.addTab("Tareas pendientes", jPanel1);
 
         jPanelTabla.setBackground(new java.awt.Color(255, 255, 255));
         jPanelTabla.setLayout(new java.awt.BorderLayout());
@@ -157,7 +155,7 @@ public class GestorTareasF extends javax.swing.JFrame {
 
         jPanelTabla.add(jScrollPane1, java.awt.BorderLayout.CENTER);
 
-        jTabbedPane1.addTab("Tareas completadas", jPanelTabla);
+        jTabbedPane.addTab("Tareas completadas", jPanelTabla);
 
         jPanelEleccion.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -168,9 +166,6 @@ public class GestorTareasF extends javax.swing.JFrame {
         jLabelCompra.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabelCompraMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jLabelCompraMouseEntered(evt);
             }
         });
         jPanelImgs.add(jLabelCompra);
@@ -222,12 +217,12 @@ public class GestorTareasF extends javax.swing.JFrame {
             .addGroup(jPanelEleccionLayout.createSequentialGroup()
                 .addGroup(jPanelEleccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelEleccionLayout.createSequentialGroup()
-                        .addGap(104, 104, 104)
-                        .addComponent(jPanelImgs, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanelEleccionLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jpanelTitulo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(72, Short.MAX_VALUE))
+                        .addComponent(jpanelTitulo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanelEleccionLayout.createSequentialGroup()
+                        .addGap(104, 104, 104)
+                        .addComponent(jPanelImgs, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(77, Short.MAX_VALUE))
         );
         jPanelEleccionLayout.setVerticalGroup(
             jPanelEleccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -239,74 +234,73 @@ public class GestorTareasF extends javax.swing.JFrame {
                 .addContainerGap(42, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Tareas recomendadas", jPanelEleccion);
+        jTabbedPane.addTab("Tareas recomendadas", jPanelEleccion);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 846, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jTabbedPane, javax.swing.GroupLayout.PREFERRED_SIZE, 846, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 426, Short.MAX_VALUE)
+            .addComponent(jTabbedPane, javax.swing.GroupLayout.DEFAULT_SIZE, 426, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnañadirMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnañadirMouseEntered
-        btnañadir.setBackground(Color.darkGray);
+        btnañadir.setBackground(Color.darkGray); //cambiaria el color al pasar el raton por encima del boton de añadir. 
     }//GEN-LAST:event_btnañadirMouseEntered
 
     private void btnañadirMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnañadirMouseExited
-        btnañadir.setBackground(new Color(0, 0, 102));
+        btnañadir.setBackground(new Color(0, 0, 102));  //restablece el color al sacar el raton del boton 
     }//GEN-LAST:event_btnañadirMouseExited
 
+
     private void btnañadirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnañadirActionPerformed
+        //Nos pregunta sobre el asunto de nuestra tarea y llama al método que añadira la tarea. 
         String tarea = JOptionPane.showInputDialog(this, "¿Sobre que será la tarea a añadir?: ", "Añadir tarea", JOptionPane.PLAIN_MESSAGE);
         paneltarea(tarea);
-        
+
     }//GEN-LAST:event_btnañadirActionPerformed
 
+    //Añade una nueva tarea al panel y aumenta el contador si la tarea es valida. 
     private void paneltarea(String mensaje) {
-        Tarea t = new Tarea(this);
-        if (this.getContadorT() < 6) {
-            
+        Tarea t = new Tarea(this); //Creamos una instancia de la clase tarea 
+        if (this.getContadorT() < 6) { //Verificamos si el limite de tareas no se ha alcanzado 
+
             if (mensaje != null && !mensaje.isEmpty() && !mensaje.trim().equals("")) {
-                t.nuevoMensaje(mensaje);
-                jPanelañadirT.add(t);
-                jPanelañadirT.revalidate();
-                jPanelañadirT.repaint();
-                this.setContadorT(contadorT + 1);
+                t.nuevoMensaje(mensaje); //le metemos el mensaje de la tarea 
+                jPanelañadirT.add(t); //añadimos la tarea al panel 
+                jPanelañadirT.revalidate(); //refrescamos el panel 
+                jPanelañadirT.repaint(); //lo volvemos a dibujar el panel 
+                this.setContadorT(contadorT + 1); //incrementamos el contador de tareas 
             } else {
+                //Mensaje de advertencia si el usuario intenta añadir una tarea vacia
                 JOptionPane.showMessageDialog(this, "Estás intentando introducir una tarea vacía.", "Tarea vacía", JOptionPane.WARNING_MESSAGE);
 
             }
 
         } else {
+            //Mensaje de error si el usuario excede el limite de tareas establecido 
             JOptionPane.showMessageDialog(this, "No se pueden añadir más de 6 tareas.\n Elimina o completa alguna tarea para añadir una nueva", "Error", JOptionPane.WARNING_MESSAGE);
         }
 
     }
 
+    //Agregamos una tarea completada a la tabla tareas completadas con la fecha actual 
     public void agregarTareaC(String tarea, String fecha) {
         modeloTabla.addRow(new Object[]{tarea, fecha});
     }
-    private void jPanel3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel3MouseEntered
 
-    }//GEN-LAST:event_jPanel3MouseEntered
-
-    private void jLabelCompraMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelCompraMouseEntered
-
-
-    }//GEN-LAST:event_jLabelCompraMouseEntered
-
+    //Pregunta al usuario si desea añadir la tarea compra y verifica el limite 
     private void jLabelCompraMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelCompraMouseClicked
         int r = JOptionPane.showConfirmDialog(this, "¿Estas seguro de añadir la tarea 'Hacer la compra'?", "Confirmación", JOptionPane.OK_CANCEL_OPTION);
         if (r == JOptionPane.OK_OPTION && this.getContadorT() < 6) {
             paneltarea("Hacer la compra");
-  
+
             JOptionPane.showMessageDialog(this, "Tarea añadida con éxito", "Información", JOptionPane.PLAIN_MESSAGE);
 
         } else {
@@ -314,12 +308,13 @@ public class GestorTareasF extends javax.swing.JFrame {
 
         }
     }//GEN-LAST:event_jLabelCompraMouseClicked
+    //Pregunta al usuario si desea añadir la tarea Cuidar animales  y verifica el limite 
 
     private void jLabelCuidarAnimalesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelCuidarAnimalesMouseClicked
         int r = JOptionPane.showConfirmDialog(this, "¿Estas seguro de añadir la tarea 'Pasear mascota'?", "Confirmación", JOptionPane.OK_CANCEL_OPTION);
         if (r == JOptionPane.OK_OPTION && this.getContadorT() < 6) {
             paneltarea("Pasear mascota");
-           
+
             JOptionPane.showMessageDialog(this, "Tarea añadida con éxito", "Información", JOptionPane.PLAIN_MESSAGE);
 
         } else {
@@ -327,12 +322,13 @@ public class GestorTareasF extends javax.swing.JFrame {
 
         }
     }//GEN-LAST:event_jLabelCuidarAnimalesMouseClicked
+    //Pregunta al usuario si desea añadir la tarea cuidar plantas y verifica el limite 
 
     private void jLabelCuidarPlantasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelCuidarPlantasMouseClicked
         int r = JOptionPane.showConfirmDialog(this, "¿Estas seguro de añadir la tarea 'Regar plantas'?", "Confirmación", JOptionPane.OK_CANCEL_OPTION);
         if (r == JOptionPane.OK_OPTION && this.getContadorT() < 6) {
             paneltarea("Regar plantas");
-          
+
             JOptionPane.showMessageDialog(this, "Tarea añadida con éxito", "Información", JOptionPane.PLAIN_MESSAGE);
 
         } else {
@@ -340,12 +336,13 @@ public class GestorTareasF extends javax.swing.JFrame {
 
         }
     }//GEN-LAST:event_jLabelCuidarPlantasMouseClicked
+    //Pregunta al usuario si desea añadir la tarea correr y verifica el limite 
 
     private void jLabelCorrerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelCorrerMouseClicked
         int r = JOptionPane.showConfirmDialog(this, "¿Estas seguro de añadir la tarea 'Regar plantas'?", "Confirmación", JOptionPane.OK_CANCEL_OPTION);
         if (r == JOptionPane.OK_OPTION && this.getContadorT() < 6) {
             paneltarea("Regar plantas");
-           
+
             JOptionPane.showMessageDialog(this, "Tarea añadida con éxito", "Información", JOptionPane.PLAIN_MESSAGE);
 
         } else {
@@ -353,12 +350,13 @@ public class GestorTareasF extends javax.swing.JFrame {
 
         }
     }//GEN-LAST:event_jLabelCorrerMouseClicked
+    //Pregunta al usuario si desea añadir la tarea Ir a peluquería y verifica el limite 
 
     private void jLabelPeluqueriaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelPeluqueriaMouseClicked
         int r = JOptionPane.showConfirmDialog(this, "¿Estas seguro de añadir la tarea 'Asisitir peluquería'?", "Confirmación", JOptionPane.OK_CANCEL_OPTION);
         if (r == JOptionPane.OK_OPTION && this.getContadorT() < 6) {
             paneltarea("Asistir peluquería");
-            
+
             JOptionPane.showMessageDialog(this, "Tarea añadida con éxito", "Información", JOptionPane.PLAIN_MESSAGE);
 
         } else {
@@ -366,12 +364,11 @@ public class GestorTareasF extends javax.swing.JFrame {
 
         }
     }//GEN-LAST:event_jLabelPeluqueriaMouseClicked
-
+    //Pregunta al usuario si desea añadir la tarea leer y verifica el limite 
     private void jLabelLeerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelLeerMouseClicked
         int r = JOptionPane.showConfirmDialog(this, "¿Estas seguro de añadir la tarea 'Leer un libro'?", "Confirmación", JOptionPane.OK_CANCEL_OPTION);
         if (r == JOptionPane.OK_OPTION && this.getContadorT() < 6) {
             paneltarea("Leer un libro");
-            
             JOptionPane.showMessageDialog(this, "Tarea añadida con éxito", "Información", JOptionPane.PLAIN_MESSAGE);
 
         } else {
@@ -379,7 +376,6 @@ public class GestorTareasF extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jLabelLeerMouseClicked
 
-   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnañadir;
@@ -396,7 +392,7 @@ public class GestorTareasF extends javax.swing.JFrame {
     private javax.swing.JPanel jPanelTabla;
     private javax.swing.JPanel jPanelañadirT;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTabbedPane jTabbedPane;
     private javax.swing.JTable jTabla;
     private jpanelPersonalizado.JpanelTitulo jpanelTitulo1;
     // End of variables declaration//GEN-END:variables

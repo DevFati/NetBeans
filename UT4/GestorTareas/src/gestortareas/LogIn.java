@@ -20,7 +20,8 @@ public class LogIn extends javax.swing.JFrame {
      */
     public LogIn() {
         initComponents();
-        this.oculto.setVisible(false);
+        this.oculto.setVisible(false); //Hace invisible el icono de la contraseña oculta por defecto
+        //Establezco el icono de la ventana 
         this.setIconImage(new ImageIcon(getClass().getResource("/imgs/icon.png")).getImage());
 
     }
@@ -57,12 +58,6 @@ public class LogIn extends javax.swing.JFrame {
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/cerrar.png"))); // NOI18N
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, 70, 70));
-
-        txt_user.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_userActionPerformed(evt);
-            }
-        });
         jPanel1.add(txt_user, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 80, 210, 40));
 
         jLabelLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/iniciar-sesion.png"))); // NOI18N
@@ -108,55 +103,63 @@ public class LogIn extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txt_userActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_userActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_userActionPerformed
-
+    //Metodo que se ejecuta cuando se hace click en el icono de login
     private void jLabelLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelLoginMouseClicked
         String usuario, contraseña;
-        usuario = txt_user.getText();
-        contraseña = String.valueOf(txt_pass.getPassword());
-        if (usuario.equals("admin") && contraseña.equals("admin")) {
+        usuario = txt_user.getText(); //Obtenemos el texto del campo de usuario 
+        contraseña = String.valueOf(txt_pass.getPassword()); //Obtenemos el texto del campo contraseña 
+        if (usuario.equals("admin") && contraseña.equals("admin")) { //verificamos si el usuario y contraseña son correctos
+            //Mensaje indicando que accedimos sin problemas 
             JOptionPane.showMessageDialog(this, "Accediste con exito", "Login correcto", WIDTH);
+            //Declramos un objeto para reproducir sonido
             AudioClip Sound;
+            //Cragamos el sonido 
             Sound = java.applet.Applet.newAudioClip(getClass().getResource("/audios/Login.wav"));
-            Sound.play();
-            this.dispose();
-            GestorTareasF tareas = new GestorTareasF();
-            // Hacemos visible la ventana
+            Sound.play(); //Reproducimos el sonido 
+            this.dispose(); //Cerramos la ventana de login
+            GestorTareasF tareas = new GestorTareasF(); //Crea una instancia de la ventana principal de tareas 
+            // Hacemos visible la ventana de tareas 
             tareas.setVisible(true);
 
-        } else {
+        } else { //si la contrasena y/o usuario son incorrectos 
+            //Nos lanza un mensaje de error
             JOptionPane.showMessageDialog(this, "Error.Revisa login o contraseña", "Login incorrecto", JOptionPane.ERROR_MESSAGE);
-            txt_user.setText("");
-            txt_pass.setText("");
+            txt_user.setText(""); //Limpia el campo de usuario 
+            txt_pass.setText(""); //Limpia el campo de contraseña 
 
         }
     }//GEN-LAST:event_jLabelLoginMouseClicked
-
+    //Metodo para que se ejecute cuando se hace clic en el icono de salida (la x de la esquina superior derecha)
     private void salirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_salirMouseClicked
-        int a = JOptionPane.YES_NO_OPTION;
+        int a = JOptionPane.YES_NO_OPTION; //Almacena la opcion de tipo yes_no_option 
         int resultado = JOptionPane.showConfirmDialog(this, "¿Esta usted seguro de salir?", "SALIR", a);
-
+        //si es 0 significa que le dio a "Si" si que se cierra la ventana.  
         if (resultado == 0) {
             this.dispose();
 
         }
     }//GEN-LAST:event_salirMouseClicked
-
+    //Metodo para ver la contraseña introducida 
     private void verMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_verMouseClicked
+        //oculta el jlaber "ver" que es un ojo 
         ver.setVisible(false);
+        //muestra el jlabel "oculto" que es un ojo tachado 
         oculto.setVisible(true);
+        //Hace visible el texto dentro del campo 
         txt_pass.setEchoChar((char) 0);
     }//GEN-LAST:event_verMouseClicked
 
+    //Este metodo se ejecuta cuando se hace clic en el jlabel ocult (ojo cerrado) 
     private void ocultoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ocultoMouseClicked
+        //Habilita el jlabel "ver" para poder selecionarlo de nuevo si queremos ver la 
+        //contraseña 
         ver.setVisible(true);
+        //desabilita el jlabel "oculto"
         oculto.setVisible(false);
+        //Hace que el texto dentro del campo se cambie por asteriscos
         txt_pass.setEchoChar('*');
     }//GEN-LAST:event_ocultoMouseClicked
 
-  
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;

@@ -7,36 +7,34 @@ package gestortareas;
 
 import java.applet.AudioClip;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
 /**
  *
- * @author fatmo
+ * @author Fatima Mortahil Chachou
  */
 public class Tarea extends javax.swing.JPanel {
-private GestorTareasF gestor;
+
+    private GestorTareasF gestor; //Almacenamos la referencia al objeto GestorTareas 
+//
+
     /**
      * Creates new form tarea
      */
     public Tarea() {
-       
-        
-    } 
+
+    }
 
     public Tarea(GestorTareasF gestor) {
         initComponents();
         this.gestor = gestor;
     }
-    
-    
-
-  
 
     public JLabel getjLabelMensaje() {
         return jLabelMensaje;
-        
+
     }
 
-    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -105,53 +103,70 @@ private GestorTareasF gestor;
         add(jPanel1, java.awt.BorderLayout.PAGE_END);
     }// </editor-fold>//GEN-END:initComponents
 
+    //Se ejecuta cuando le damos clic al botón de eliminar 
     private void jButtonEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEliminarActionPerformed
-       java.awt.Container padre=this.getParent();
-       
-       gestor.setContadorT(gestor.getContadorT()-1);
-       padre.remove(this);
-       padre.revalidate();
-       padre.repaint();
+        //Obtenemos el contenedor padre de esta tarea 
+        java.awt.Container padre = this.getParent();
+        //Actualiza el contador total de paneles, al eliminar 1, entonces restamos 1
+
+        gestor.setContadorT(gestor.getContadorT() - 1);
+        //La tarea se elimina del contenedor y actualizamos y volvemos a 
+        //pintarla para que se reflejen los cambios. 
+        padre.remove(this);
+        padre.revalidate();
+        padre.repaint();
     }//GEN-LAST:event_jButtonEliminarActionPerformed
 
+    //Este metodo se ejecuta cuando se hace clic en el botón editar, permite mdificar 
+    //el texto de la tarea. 
     private void jButtonEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditarActionPerformed
-        GestorTareasF p=new GestorTareasF(); 
-        Editar ed=new Editar(p, jLabelMensaje.getText());
-        ed.setVisible(true);
-        
-        String textmod=ed.textomod();
-        if(textmod!=null && !textmod.trim().isEmpty()){
-            jLabelMensaje.setText(textmod); 
-        }
-       
-        
-        java.awt.Container padre=this.getParent();
-        padre.revalidate();
-       padre.repaint();
-            
-    }//GEN-LAST:event_jButtonEditarActionPerformed
 
+        GestorTareasF p = new GestorTareasF();
+        //Instancia "Editar" que permite editar el texto de la tarea
+        Editar ed = new Editar(p, jLabelMensaje.getText());
+        //Lo hacemos visible para que el usuario pueda modificar el texto de la 
+        //tarea 
+        ed.setVisible(true);
+        //Obtenemos el nuevo texto modificado, si es nulo o vacio no se actualiza 
+        String textmod = ed.textomod();
+        if (textmod != null && !textmod.trim().isEmpty()) {
+            jLabelMensaje.setText(textmod);
+
+            java.awt.Container padre = this.getParent();
+            padre.revalidate();
+            padre.repaint();
+        } else {
+            JOptionPane.showMessageDialog(this, "Estás intentando introducir una tarea vacía.", "Tarea vacía", JOptionPane.WARNING_MESSAGE);
+
+        }
+
+
+    }//GEN-LAST:event_jButtonEditarActionPerformed
+//Este metodo se ejecuta cuando se hace clic en el botón de confirmar
     private void jButtonConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConfirmarActionPerformed
         AudioClip Sound;
-        Sound=java.applet.Applet.newAudioClip(getClass().getResource("/audios/notif.wav"));
+        //reproduce un sonido para confirmar que la tarea fue completada 
+        Sound = java.applet.Applet.newAudioClip(getClass().getResource("/audios/notif.wav"));
         Sound.play();
-        
-        
-        //Mover la tarea completada a la tabla 
-         String tareaTexto=jLabelMensaje.getText();
-         String fecha=java.time.LocalDateTime.now().format(java.time.format.DateTimeFormatter.ofPattern("HH:mm dd-MM-yyyy"));
-         java.awt.Container padre=this.getParent();
-         
-         
-         gestor.agregarTareaC(tareaTexto,fecha);
-         padre.remove(this);
-         padre.revalidate();
-         padre.repaint();
-         gestor.setContadorT(gestor.getContadorT()-1);
+
+        //Mover la tarea completada a la tabla jTable 
+        //Obtenemos el mensaje de la tarea 
+        String tareaTexto = jLabelMensaje.getText();
+        //Obtenemos la fecha en la que se completo la tarea 
+        String fecha = java.time.LocalDateTime.now().format(java.time.format.DateTimeFormatter.ofPattern("HH:mm dd-MM-yyyy"));
+        java.awt.Container padre = this.getParent();
+
+        //Agregamos la tarea a la tabla y eliminamos la tarea de nuestro panel
+        gestor.agregarTareaC(tareaTexto, fecha);
+        padre.remove(this);
+        padre.revalidate();
+        padre.repaint();
+        //Modificamos el contador total de paneles 
+        gestor.setContadorT(gestor.getContadorT() - 1);
     }//GEN-LAST:event_jButtonConfirmarActionPerformed
 
-   
-    public void nuevoMensaje(String m){
+    //Metodo para que se establezca el asunto de la tarea introducida por el usuario 
+    public void nuevoMensaje(String m) {
         jLabelMensaje.setText(m);
     }
 
