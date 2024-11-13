@@ -13,16 +13,27 @@ import javax.swing.JLabel;
  * @author fatmo
  */
 public class Tarea extends javax.swing.JPanel {
-
+private GestorTareasF gestor;
     /**
      * Creates new form tarea
      */
     public Tarea() {
-        initComponents();
+       
+        
     } 
+
+    public Tarea(GestorTareasF gestor) {
+        initComponents();
+        this.gestor = gestor;
+    }
+    
+    
+
+  
 
     public JLabel getjLabelMensaje() {
         return jLabelMensaje;
+        
     }
 
     
@@ -37,82 +48,74 @@ public class Tarea extends javax.swing.JPanel {
 
         jLabelMensaje = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        btnEliminar = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        btnEditar = new javax.swing.JButton();
+        jButtonEliminar = new javax.swing.JButton();
+        jButtonConfirmar = new javax.swing.JButton();
+        jButtonEditar = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 255), 2));
-        setPreferredSize(new java.awt.Dimension(280, 80));
+        setPreferredSize(new java.awt.Dimension(280, 100));
         setLayout(new java.awt.BorderLayout());
 
+        jLabelMensaje.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabelMensaje.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelMensaje.setText("Tarea");
-        jLabelMensaje.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabelMensajeMouseClicked(evt);
-            }
-        });
         add(jLabelMensaje, java.awt.BorderLayout.CENTER);
 
         jPanel1.setLayout(new java.awt.GridLayout(1, 3, 1, 0));
 
-        btnEliminar.setBackground(new java.awt.Color(255, 51, 51));
-        btnEliminar.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        btnEliminar.setForeground(new java.awt.Color(255, 255, 255));
-        btnEliminar.setText("Eliminar");
-        btnEliminar.setBorderPainted(false);
-        btnEliminar.setFocusPainted(false);
-        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+        jButtonEliminar.setBackground(new java.awt.Color(255, 51, 51));
+        jButtonEliminar.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jButtonEliminar.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/eliminar.png"))); // NOI18N
+        jButtonEliminar.setBorderPainted(false);
+        jButtonEliminar.setFocusPainted(false);
+        jButtonEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEliminarActionPerformed(evt);
+                jButtonEliminarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnEliminar);
+        jPanel1.add(jButtonEliminar);
 
-        jButton1.setBackground(new java.awt.Color(0, 153, 0));
-        jButton1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Completada");
-        jButton1.setBorderPainted(false);
-        jButton1.setFocusPainted(false);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jButtonConfirmar.setBackground(new java.awt.Color(0, 153, 0));
+        jButtonConfirmar.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jButtonConfirmar.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonConfirmar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/cheque.png"))); // NOI18N
+        jButtonConfirmar.setBorderPainted(false);
+        jButtonConfirmar.setFocusPainted(false);
+        jButtonConfirmar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jButtonConfirmarActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1);
+        jPanel1.add(jButtonConfirmar);
 
-        btnEditar.setBackground(new java.awt.Color(51, 51, 255));
-        btnEditar.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        btnEditar.setForeground(new java.awt.Color(255, 255, 255));
-        btnEditar.setText("Editar");
-        btnEditar.setPreferredSize(new java.awt.Dimension(50, 25));
-        btnEditar.addActionListener(new java.awt.event.ActionListener() {
+        jButtonEditar.setBackground(new java.awt.Color(51, 51, 255));
+        jButtonEditar.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jButtonEditar.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/editar.png"))); // NOI18N
+        jButtonEditar.setPreferredSize(new java.awt.Dimension(50, 10));
+        jButtonEditar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEditarActionPerformed(evt);
+                jButtonEditarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnEditar);
+        jPanel1.add(jButtonEditar);
 
         add(jPanel1, java.awt.BorderLayout.PAGE_END);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+    private void jButtonEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEliminarActionPerformed
        java.awt.Container padre=this.getParent();
-       GestorTareas p=new GestorTareas();
-       p.setContadorT(p.getContadorT()-1);
+       
+       gestor.setContadorT(gestor.getContadorT()-1);
        padre.remove(this);
        padre.revalidate();
        padre.repaint();
-    }//GEN-LAST:event_btnEliminarActionPerformed
+    }//GEN-LAST:event_jButtonEliminarActionPerformed
 
-    private void jLabelMensajeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelMensajeMouseClicked
-      
-    }//GEN-LAST:event_jLabelMensajeMouseClicked
-
-    private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
-        GestorTareas p=new GestorTareas(); 
+    private void jButtonEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditarActionPerformed
+        GestorTareasF p=new GestorTareasF(); 
         Editar ed=new Editar(p, jLabelMensaje.getText());
         ed.setVisible(true);
         
@@ -126,13 +129,26 @@ public class Tarea extends javax.swing.JPanel {
         padre.revalidate();
        padre.repaint();
             
-    }//GEN-LAST:event_btnEditarActionPerformed
+    }//GEN-LAST:event_jButtonEditarActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jButtonConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConfirmarActionPerformed
         AudioClip Sound;
         Sound=java.applet.Applet.newAudioClip(getClass().getResource("/audios/notif.wav"));
         Sound.play();
-    }//GEN-LAST:event_jButton1ActionPerformed
+        
+        
+        //Mover la tarea completada a la tabla 
+         String tareaTexto=jLabelMensaje.getText();
+         String fecha=java.time.LocalDateTime.now().format(java.time.format.DateTimeFormatter.ofPattern("HH:mm dd-MM-yyyy"));
+         java.awt.Container padre=this.getParent();
+         
+         
+         gestor.agregarTareaC(tareaTexto,fecha);
+         padre.remove(this);
+         padre.revalidate();
+         padre.repaint();
+         gestor.setContadorT(gestor.getContadorT()-1);
+    }//GEN-LAST:event_jButtonConfirmarActionPerformed
 
    
     public void nuevoMensaje(String m){
@@ -140,9 +156,9 @@ public class Tarea extends javax.swing.JPanel {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnEditar;
-    private javax.swing.JButton btnEliminar;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButtonConfirmar;
+    private javax.swing.JButton jButtonEditar;
+    private javax.swing.JButton jButtonEliminar;
     private javax.swing.JLabel jLabelMensaje;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables

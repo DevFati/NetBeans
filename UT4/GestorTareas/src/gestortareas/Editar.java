@@ -21,7 +21,7 @@ public class Editar extends JDialog {
      * Creates new form Editar
      */
     
-    public Editar(JDialog padre,String contenido) {
+    public Editar(JFrame padre,String contenido) {
         super(padre, true);
         initComponents();
         this.jTextArea2.setText(contenido);
@@ -60,6 +60,7 @@ public class Editar extends JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(300, 200));
+        setResizable(false);
 
         jPanel1.setPreferredSize(new java.awt.Dimension(300, 200));
         jPanel1.setLayout(new java.awt.BorderLayout());
@@ -73,11 +74,13 @@ public class Editar extends JDialog {
 
         jPanel1.add(jScrollPane2, java.awt.BorderLayout.CENTER);
 
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setPreferredSize(new java.awt.Dimension(300, 50));
+        jPanel2.setLayout(new java.awt.GridLayout());
 
         jButton2.setBackground(new java.awt.Color(0, 102, 204));
-        jButton2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
+        jButton2.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(0, 0, 102));
         jButton2.setText("Cerrar");
         jButton2.setBorderPainted(false);
         jButton2.setFocusPainted(false);
@@ -86,23 +89,7 @@ public class Editar extends JDialog {
                 jButton2ActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(110, 110, 110)
-                .addComponent(jButton2)
-                .addContainerGap(128, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jButton2)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        jPanel2.add(jButton2);
 
         jPanel1.add(jPanel2, java.awt.BorderLayout.PAGE_END);
 
@@ -110,7 +97,7 @@ public class Editar extends JDialog {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

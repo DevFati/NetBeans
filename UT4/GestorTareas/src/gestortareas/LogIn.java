@@ -5,6 +5,7 @@
  */
 package gestortareas;
 
+import java.applet.AudioClip;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
@@ -19,9 +20,9 @@ public class LogIn extends javax.swing.JFrame {
      */
     public LogIn() {
         initComponents();
-        this.oculto.setVisible(false);  
+        this.oculto.setVisible(false);
         this.setIconImage(new ImageIcon(getClass().getResource("/imgs/icon.png")).getImage());
-        
+
     }
 
     /**
@@ -45,6 +46,7 @@ public class LogIn extends javax.swing.JFrame {
         ver = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(153, 204, 255));
@@ -80,7 +82,6 @@ public class LogIn extends javax.swing.JFrame {
         jPanel1.add(salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 0, 30, 30));
 
         jLabel5.setFont(new java.awt.Font("Times New Roman", 3, 36)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 0, 204));
         jLabel5.setText("Bienvenid@!");
         jLabel5.setToolTipText("");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(97, 16, 207, 50));
@@ -113,41 +114,40 @@ public class LogIn extends javax.swing.JFrame {
 
     private void jLabelLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelLoginMouseClicked
         String usuario, contraseña;
-        usuario=txt_user.getText();
-        contraseña=String.valueOf(txt_pass.getPassword());
-        if(usuario.equals("admin") && contraseña.equals("admin")){
+        usuario = txt_user.getText();
+        contraseña = String.valueOf(txt_pass.getPassword());
+        if (usuario.equals("admin") && contraseña.equals("admin")) {
             JOptionPane.showMessageDialog(this, "Accediste con exito", "Login correcto", WIDTH);
-            
+            AudioClip Sound;
+            Sound = java.applet.Applet.newAudioClip(getClass().getResource("/audios/Login.wav"));
+            Sound.play();
             this.dispose();
-            GestorTareas tareas=new GestorTareas(this,true);
-                // Hacemos visible la ventana
-                tareas.setVisible(true);
-            
-            
-            
-              
-        }else{
-                JOptionPane.showMessageDialog(this, "Error.Revisa login o contraseña", "Login incorrecto", JOptionPane.ERROR_MESSAGE);
-                txt_user.setText("");
-                txt_pass.setText("");
-            
+            GestorTareasF tareas = new GestorTareasF();
+            // Hacemos visible la ventana
+            tareas.setVisible(true);
+
+        } else {
+            JOptionPane.showMessageDialog(this, "Error.Revisa login o contraseña", "Login incorrecto", JOptionPane.ERROR_MESSAGE);
+            txt_user.setText("");
+            txt_pass.setText("");
+
         }
     }//GEN-LAST:event_jLabelLoginMouseClicked
 
     private void salirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_salirMouseClicked
         int a = JOptionPane.YES_NO_OPTION;
-        int resultado=JOptionPane.showConfirmDialog(this, "¿Esta usted seguro de salir?","SALIR",a);
-        
-        if(resultado==0){
+        int resultado = JOptionPane.showConfirmDialog(this, "¿Esta usted seguro de salir?", "SALIR", a);
+
+        if (resultado == 0) {
             this.dispose();
-       
+
         }
     }//GEN-LAST:event_salirMouseClicked
 
     private void verMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_verMouseClicked
         ver.setVisible(false);
         oculto.setVisible(true);
-        txt_pass.setEchoChar((char)0);
+        txt_pass.setEchoChar((char) 0);
     }//GEN-LAST:event_verMouseClicked
 
     private void ocultoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ocultoMouseClicked
@@ -156,40 +156,7 @@ public class LogIn extends javax.swing.JFrame {
         txt_pass.setEchoChar('*');
     }//GEN-LAST:event_ocultoMouseClicked
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(LogIn.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(LogIn.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(LogIn.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(LogIn.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new LogIn().setVisible(true);
-            }
-        });
-    }
+  
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
