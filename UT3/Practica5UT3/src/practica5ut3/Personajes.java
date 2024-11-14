@@ -41,117 +41,128 @@ public class Personajes extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jPanelImagen1.setImagenFondo(new jpanelimagen.ImagenFondo(new java.io.File("C:/Users/Tarde/Documents/NetBeans/UT3/Practica5UT3/src/imgs/fondo22.png"), 0.5f, 1.0f));
+        jPanelImagen1.setImagenFondo(new jpanelimagen.ImagenFondo(new java.io.File("C:/Users/Tarde/Documents/NetBeans/UT3/Practica5UT3/src/imgs/fondo22.png"), 1.0f, 1.0f));
 
+        jPanel1.setOpaque(false);
         jPanel1.setPreferredSize(new java.awt.Dimension(400, 300));
-        jPanel1.setLayout(new java.awt.GridLayout(2, 4));
+        jPanel1.setLayout(new java.awt.GridLayout(2, 4, 3, 3));
 
-        jPanelImagen2.setImagenFondo(new jpanelimagen.ImagenFondo(new java.io.File("C:/Users/Tarde/Documents/NetBeans/UT3/Practica5UT3/src/imgs/1.png"), 0.5f, 1.0f));
+        jPanelImagen2.setImagenFondo(new jpanelimagen.ImagenFondo(new java.io.File("C:/Users/Tarde/Documents/NetBeans/UT3/Practica5UT3/src/imgs/uno.png"), 1.0f, 1.0f));
 
         javax.swing.GroupLayout jPanelImagen2Layout = new javax.swing.GroupLayout(jPanelImagen2);
         jPanelImagen2.setLayout(jPanelImagen2Layout);
         jPanelImagen2Layout.setHorizontalGroup(
             jPanelImagen2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 129, Short.MAX_VALUE)
+            .addGap(0, 97, Short.MAX_VALUE)
         );
         jPanelImagen2Layout.setVerticalGroup(
             jPanelImagen2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 213, Short.MAX_VALUE)
+            .addGap(0, 148, Short.MAX_VALUE)
         );
 
         jPanel1.add(jPanelImagen2);
 
-        jPanelImagen3.setImagenFondo(new jpanelimagen.ImagenFondo(new java.io.File("C:/Users/Tarde/Documents/NetBeans/UT3/Practica5UT3/src/imgs/cuatro.png"), 0.5f, 1.0f));
+        jPanelImagen3.setImagenFondo(new jpanelimagen.ImagenFondo(new java.io.File("C:/Users/Tarde/Documents/NetBeans/UT3/Practica5UT3/src/imgs/dos.png"), 0.26f, 0.67f));
 
         javax.swing.GroupLayout jPanelImagen3Layout = new javax.swing.GroupLayout(jPanelImagen3);
         jPanelImagen3.setLayout(jPanelImagen3Layout);
         jPanelImagen3Layout.setHorizontalGroup(
             jPanelImagen3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 129, Short.MAX_VALUE)
+            .addGap(0, 97, Short.MAX_VALUE)
         );
         jPanelImagen3Layout.setVerticalGroup(
             jPanelImagen3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 213, Short.MAX_VALUE)
+            .addGap(0, 148, Short.MAX_VALUE)
         );
 
         jPanel1.add(jPanelImagen3);
 
-        jPanelImagen4.setImagenFondo(new jpanelimagen.ImagenFondo(new java.io.File("C:/Program Files/NetBeans 8.2"), 0.5f, 1.0f));
+        jPanelImagen4.setImagenFondo(new jpanelimagen.ImagenFondo(new java.io.File("C:/Users/Tarde/Documents/NetBeans/UT3/Practica5UT3/src/imgs/tres.png"), 1.0f, 1.0f));
 
         javax.swing.GroupLayout jPanelImagen4Layout = new javax.swing.GroupLayout(jPanelImagen4);
         jPanelImagen4.setLayout(jPanelImagen4Layout);
         jPanelImagen4Layout.setHorizontalGroup(
             jPanelImagen4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 129, Short.MAX_VALUE)
+            .addGap(0, 97, Short.MAX_VALUE)
         );
         jPanelImagen4Layout.setVerticalGroup(
             jPanelImagen4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 213, Short.MAX_VALUE)
+            .addGap(0, 148, Short.MAX_VALUE)
         );
 
         jPanel1.add(jPanelImagen4);
+
+        jPanelImagen5.setImagenFondo(new jpanelimagen.ImagenFondo(new java.io.File("C:/Users/Tarde/Documents/NetBeans/UT3/Practica5UT3/src/imgs/cuatro.png"), 1.0f, 1.0f));
 
         javax.swing.GroupLayout jPanelImagen5Layout = new javax.swing.GroupLayout(jPanelImagen5);
         jPanelImagen5.setLayout(jPanelImagen5Layout);
         jPanelImagen5Layout.setHorizontalGroup(
             jPanelImagen5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 129, Short.MAX_VALUE)
+            .addGap(0, 97, Short.MAX_VALUE)
         );
         jPanelImagen5Layout.setVerticalGroup(
             jPanelImagen5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 213, Short.MAX_VALUE)
+            .addGap(0, 148, Short.MAX_VALUE)
         );
 
         jPanel1.add(jPanelImagen5);
+
+        jPanelImagen6.setImagenFondo(new jpanelimagen.ImagenFondo(new java.io.File("C:/Users/Tarde/Documents/NetBeans/UT3/Practica5UT3/src/imgs/cinco.png"), 1.0f, 1.0f));
 
         javax.swing.GroupLayout jPanelImagen6Layout = new javax.swing.GroupLayout(jPanelImagen6);
         jPanelImagen6.setLayout(jPanelImagen6Layout);
         jPanelImagen6Layout.setHorizontalGroup(
             jPanelImagen6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 129, Short.MAX_VALUE)
+            .addGap(0, 97, Short.MAX_VALUE)
         );
         jPanelImagen6Layout.setVerticalGroup(
             jPanelImagen6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 213, Short.MAX_VALUE)
+            .addGap(0, 148, Short.MAX_VALUE)
         );
 
         jPanel1.add(jPanelImagen6);
+
+        jPanelImagen7.setImagenFondo(new jpanelimagen.ImagenFondo(new java.io.File("C:/Users/Tarde/Documents/NetBeans/UT3/Practica5UT3/src/imgs/seis.png"), 1.0f, 1.0f));
 
         javax.swing.GroupLayout jPanelImagen7Layout = new javax.swing.GroupLayout(jPanelImagen7);
         jPanelImagen7.setLayout(jPanelImagen7Layout);
         jPanelImagen7Layout.setHorizontalGroup(
             jPanelImagen7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 129, Short.MAX_VALUE)
+            .addGap(0, 97, Short.MAX_VALUE)
         );
         jPanelImagen7Layout.setVerticalGroup(
             jPanelImagen7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 213, Short.MAX_VALUE)
+            .addGap(0, 148, Short.MAX_VALUE)
         );
 
         jPanel1.add(jPanelImagen7);
+
+        jPanelImagen8.setImagenFondo(new jpanelimagen.ImagenFondo(new java.io.File("C:/Users/Tarde/Documents/NetBeans/UT3/Practica5UT3/src/imgs/siete.png"), 1.0f, 1.0f));
 
         javax.swing.GroupLayout jPanelImagen8Layout = new javax.swing.GroupLayout(jPanelImagen8);
         jPanelImagen8.setLayout(jPanelImagen8Layout);
         jPanelImagen8Layout.setHorizontalGroup(
             jPanelImagen8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 129, Short.MAX_VALUE)
+            .addGap(0, 97, Short.MAX_VALUE)
         );
         jPanelImagen8Layout.setVerticalGroup(
             jPanelImagen8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 213, Short.MAX_VALUE)
+            .addGap(0, 148, Short.MAX_VALUE)
         );
 
         jPanel1.add(jPanelImagen8);
+
+        jPanelImagen9.setImagenFondo(new jpanelimagen.ImagenFondo(new java.io.File("C:/Users/Tarde/Documents/NetBeans/UT3/Practica5UT3/src/imgs/ocho.png"), 1.0f, 1.0f));
 
         javax.swing.GroupLayout jPanelImagen9Layout = new javax.swing.GroupLayout(jPanelImagen9);
         jPanelImagen9.setLayout(jPanelImagen9Layout);
         jPanelImagen9Layout.setHorizontalGroup(
             jPanelImagen9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 129, Short.MAX_VALUE)
+            .addGap(0, 97, Short.MAX_VALUE)
         );
         jPanelImagen9Layout.setVerticalGroup(
             jPanelImagen9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 213, Short.MAX_VALUE)
+            .addGap(0, 148, Short.MAX_VALUE)
         );
 
         jPanel1.add(jPanelImagen9);
@@ -161,16 +172,16 @@ public class Personajes extends javax.swing.JDialog {
         jPanelImagen1Layout.setHorizontalGroup(
             jPanelImagen1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelImagen1Layout.createSequentialGroup()
-                .addContainerGap(178, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 518, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(296, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         jPanelImagen1Layout.setVerticalGroup(
             jPanelImagen1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelImagen1Layout.createSequentialGroup()
                 .addContainerGap(71, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 427, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(167, 167, 167))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

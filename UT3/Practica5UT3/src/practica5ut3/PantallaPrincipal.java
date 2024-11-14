@@ -6,6 +6,7 @@
 package practica5ut3;
 
 import java.awt.Color;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import jpanelimagen.ImagenFondo;
 
@@ -19,12 +20,10 @@ public class PantallaPrincipal extends javax.swing.JFrame {
      * Creates new form PantallaPrincipal
      */
     public PantallaPrincipal() {
-        initComponents();
-        
-       
-        
-        
+        initComponents();       
         jButtonEnviar.setBackground(new Color(52, 152, 219));
+                this.setIconImage(new ImageIcon(getClass().getResource("/imgs/fondo3.png")).getImage());
+
     }
 
     /**
@@ -42,15 +41,15 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jButtonEnviar = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
-        jTextFieldPassword = new javax.swing.JTextField();
         jTextFieldAge = new javax.swing.JTextField();
         jTextFieldNick = new javax.swing.JTextField();
         jTextFieldName = new javax.swing.JTextField();
+        jPasswordField1 = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanelImagen2.setImagenFondo(new jpanelimagen.ImagenFondo(new java.io.File("C:/Users/fatmo/OneDrive/Documentos/2024-2025/NetBeans/UT3/Practica5UT3/src/imgs/1-4a9eb30e.png"), 0.5f, 1.0f));
+        jPanelImagen2.setImagenFondo(new jpanelimagen.ImagenFondo(new java.io.File("C:/Users/Tarde/Documents/NetBeans/UT3/Practica5UT3/src/imgs/1-4a9eb30e.png"), 1.0f, 0.99f));
 
         jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 0, 102));
@@ -76,12 +75,6 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 102));
         jLabel3.setText("AGE");
-
-        jTextFieldPassword.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldPasswordActionPerformed(evt);
-            }
-        });
 
         jTextFieldAge.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -110,10 +103,10 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                             .addComponent(jLabel1))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanelImagen2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextFieldName, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE)
+                            .addComponent(jTextFieldName, javax.swing.GroupLayout.DEFAULT_SIZE, 149, Short.MAX_VALUE)
                             .addComponent(jTextFieldNick)
                             .addComponent(jTextFieldAge)
-                            .addComponent(jTextFieldPassword)))
+                            .addComponent(jPasswordField1)))
                     .addGroup(jPanelImagen2Layout.createSequentialGroup()
                         .addGap(169, 169, 169)
                         .addComponent(jButtonEnviar)))
@@ -137,9 +130,9 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanelImagen2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel4)
-                            .addComponent(jTextFieldPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jTextFieldNick, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
                 .addComponent(jButtonEnviar)
                 .addGap(66, 66, 66))
         );
@@ -154,33 +147,35 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldAgeActionPerformed
 
     private void jButtonEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEnviarActionPerformed
+        boolean entra=true;
         if(esNumero(jTextFieldAge.getText())){
             int edad=Integer.parseInt(jTextFieldAge.getText());
             
             if(edad<=18){
+                entra=false;
                 JOptionPane.showMessageDialog( this , "Debe de tener más de 18 años", "PG-18" , JOptionPane.WARNING_MESSAGE );
-
             }
-            
         }else{
+            entra=false;
             JOptionPane.showMessageDialog( this, "Debes introducir un número válido", "Valor no válido", JOptionPane.ERROR_MESSAGE );
 
         }
+         if(jTextFieldNick.getText().equals("") || jPasswordField1.getText().equals("")){
+             entra=false;
+                JOptionPane.showMessageDialog( this , "Todos los campos deben estar rellenos ", "Campos vacios" , JOptionPane.WARNING_MESSAGE );
+            }
+         
+         if(entra==true){
+             Personajes p=new Personajes(this,true);
+             this.setVisible(false);
+             p.setVisible(true);
+         }
         
          if (!jTextFieldName.getText().matches("[A-Za-z]*")) {
             JOptionPane.showMessageDialog(this, "Introduce una palabra válida", "Entrada inválida", JOptionPane.ERROR_MESSAGE);
 
-        }
-        
-        
-        
-        
-        
+        }                  
     }//GEN-LAST:event_jButtonEnviarActionPerformed
-
-    private void jTextFieldPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldPasswordActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldPasswordActionPerformed
 
     private void jTextFieldNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNameActionPerformed
         // TODO add your handling code here:
@@ -240,9 +235,9 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private jpanelimagen.JPanelImagen jPanelImagen2;
+    private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JTextField jTextFieldAge;
     private javax.swing.JTextField jTextFieldName;
     private javax.swing.JTextField jTextFieldNick;
-    private javax.swing.JTextField jTextFieldPassword;
     // End of variables declaration//GEN-END:variables
 }

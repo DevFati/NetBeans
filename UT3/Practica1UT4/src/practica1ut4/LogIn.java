@@ -110,7 +110,10 @@ public class LogIn extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         if(user.getText().equals("admin") && pass.getText().equals("admin")){
-            
+            Formulario f=new Formulario(this, true);
+             this.setVisible(false);
+            f.setVisible(true);
+           
         }else{
             JOptionPane.showMessageDialog(this, "Acceso denegado, comprueba usuario y contraseña", "ERROR", JOptionPane.ERROR_MESSAGE);
             user.setText("");

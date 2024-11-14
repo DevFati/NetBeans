@@ -8,6 +8,8 @@ package practica1ut4;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -21,12 +23,8 @@ public class Formulario extends javax.swing.JDialog {
     public Formulario(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        
+        setLocationRelativeTo(null);
       
-        
-       
-        
-        
         
         
     }
@@ -43,13 +41,13 @@ public class Formulario extends javax.swing.JDialog {
         buttonGroup1 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        jTextFieldNombre = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        jTextFieldApe = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        jTextFieldNif = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
+        jTextFieldEmail = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
         jLabel6 = new javax.swing.JLabel();
@@ -74,6 +72,8 @@ public class Formulario extends javax.swing.JDialog {
         jMenuItem2 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(625, 512));
+        setResizable(false);
 
         jLabel1.setText("Nombre:");
 
@@ -95,6 +95,7 @@ public class Formulario extends javax.swing.JDialog {
         jLabel6.setText("Desea recibir las ultimas noticias en su correo: ");
 
         buttonGroup1.add(jRadioButton1);
+        jRadioButton1.setSelected(true);
         jRadioButton1.setText("Si");
 
         buttonGroup1.add(jRadioButton2);
@@ -123,10 +124,10 @@ public class Formulario extends javax.swing.JDialog {
                             .addComponent(jLabel5))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextFieldNif, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextFieldNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextFieldEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextFieldApe, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(bandera)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -146,24 +147,24 @@ public class Formulario extends javax.swing.JDialog {
                 .addGap(22, 22, 22)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldApe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldNif, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(24, 24, 24)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bandera, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(bandera, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
@@ -229,6 +230,11 @@ public class Formulario extends javax.swing.JDialog {
         jMenu1.setText("Archivo");
 
         jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/nuevo.png"))); // NOI18N
+        jMenuItem1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenuItem1MouseClicked(evt);
+            }
+        });
         jMenu1.add(jMenuItem1);
 
         jMenuItem3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/guardar.png"))); // NOI18N
@@ -299,6 +305,33 @@ public class Formulario extends javax.swing.JDialog {
             bandera.setIcon(new ImageIcon(banderas[jComboBox1.getSelectedIndex()]));
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
+    private void jMenuItem1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuItem1MouseClicked
+        if(PalabraValida(jTextFieldNombre.getText()) && PalabraValida(jTextFieldApe.getText())&& NifValido(jTextFieldNif.getText()) && !jTextFieldEmail.getText().isEmpty() ){
+            
+        }else{
+                      JOptionPane.showMessageDialog(this, "Introduce los datos de manera correcta", "Entrada inválida", JOptionPane.ERROR_MESSAGE);
+  
+        }
+    }//GEN-LAST:event_jMenuItem1MouseClicked
+
+    private boolean PalabraValida(String f){
+        if (!f.matches("[A-Za-z]*")) {
+            JOptionPane.showMessageDialog(this, "Introduce una palabra válida", "Entrada inválida", JOptionPane.ERROR_MESSAGE);
+               return false;
+        }else{
+            return true;
+        } 
+    }
+    
+    private boolean NifValido(String f){
+         if (!f.matches("[0-9]{8}[A-Z]")) {
+            JOptionPane.showMessageDialog(this, "Introduce una palabra válida", "Entrada inválida", JOptionPane.ERROR_MESSAGE);
+               return false;
+        }else{
+            return true;
+        }
+    }
+     
     /**
      * @param args the command line arguments
      */
@@ -370,9 +403,9 @@ public class Formulario extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField jTextFieldApe;
+    private javax.swing.JTextField jTextFieldEmail;
+    private javax.swing.JTextField jTextFieldNif;
+    private javax.swing.JTextField jTextFieldNombre;
     // End of variables declaration//GEN-END:variables
 }
