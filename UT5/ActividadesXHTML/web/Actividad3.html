@@ -6,13 +6,24 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <title>TODO supply a title</title>
+        <title>Cara sonriente</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <svg width="120" height="120">
-        <circle cx="50" cy="50" r="40" stroke="blue" stroke-width="3" fill="white"/>
+        <svg width="150" height="150">
+        <!--Circulo exterior -->
+            <circle cx="75" cy="75" r="70" stroke="blue" stroke-width="3" fill="white" />
+         <!-- ojo izquierdo -->
+            <circle cx="55" cy="55" r="10" fill="blue" />
+            
+            <!-- ojo derecho -->
+            <circle cx="95" cy="55" r="10" fill="blue" />
+            
+            <!-- boca -->
+            <!-- M40 95 mueve el cursor a donde inicia la boca
+            C55 135,... es para crear curvas cubicas  -->
+            <path d="M40 95 C55 135, 95 135, 110 95" fill="none" stroke="blue" stroke-width="4" />
         </svg>
     </body>
 </html>
