@@ -45,7 +45,6 @@ public class Actividad1_Bingo {
                     //Verificamos que el numero no se repita en el cartón 
                     while(buscaNum(num)){
                         num=(int)(Math.random()*75)+1;
-                        
                     }
                     
                     //Asigna el numero al carton en la posicion correspondiente 
@@ -57,8 +56,6 @@ public class Actividad1_Bingo {
             carton[2][2]=0;
             
         return carton;
-      
-    
     }
     
 }

@@ -15,7 +15,7 @@ import javax.swing.JOptionPane;
 public class Bingo extends javax.swing.JFrame {
 
     static int carton[][] = new int[5][5];
-
+    private boolean ganar=false;
     /**
      * Creates new form Bingo
      */
@@ -36,57 +36,53 @@ public class Bingo extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel2 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jTextArea = new javax.swing.JTextArea();
-        jButtonGenerarNumero = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        jButtonGenerarNumero = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setLayout(new java.awt.GridLayout());
+        jPanel2.setBackground(new java.awt.Color(153, 204, 255));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jPanel1.setLayout(new java.awt.GridLayout(1, 0));
+
+        jTextArea.setEditable(false);
         jTextArea.setColumns(20);
         jTextArea.setFont(new java.awt.Font("Monospaced", 1, 18)); // NOI18N
         jTextArea.setRows(5);
-        jTextArea.setEnabled(false);
         jPanel1.add(jTextArea);
 
+        jPanel2.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, 404, 156));
+
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 190, 53, 30));
+
+        jButtonGenerarNumero.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jButtonGenerarNumero.setText("Generar número");
         jButtonGenerarNumero.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonGenerarNumeroActionPerformed(evt);
             }
         });
+        jPanel2.add(jButtonGenerarNumero, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 190, -1, -1));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/barajar.png"))); // NOI18N
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(229, 190, 40, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 404, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(152, 152, 152)
-                        .addComponent(jButtonGenerarNumero)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 434, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(28, 28, 28)
-                        .addComponent(jButtonGenerarNumero))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 244, Short.MAX_VALUE)
         );
 
         pack();
@@ -96,22 +92,28 @@ public class Bingo extends javax.swing.JFrame {
         int n = 0;
         n = (int) (Math.random() * 75) + 1;
 
-        jLabel1.setText(n + "");
-        boolean ganar = false;
-        if (!ganar) {
+        
+        
+       
+            jLabel1.setText(n + "");
             if (buscaNum(n)) {
                 //Cambiamos el numero encontrado por un "0"
                 cambiarNum(n);
-                //Comprobamos si el jugador gano o  no
-                //Se gana si se completa una fila entera, una columna o una diagonal
-                ganar = comprobarEstado();
-
                 //Ver el carton en su nuevo estado 
                 jTextArea.setText(verCarton());
-            }
-        } else {
-            jButtonGenerarNumero.setEnabled(false);
-        }
+               
+                //Comprobamos si el jugador gano o  no
+                //Se gana si se completa una fila entera, una columna o una diagonal   
+                ganar = comprobarEstado();
+                if(ganar){
+                   jButtonGenerarNumero.setEnabled(false); 
+                }
+            }        
+        
+            
+        
+        
+        
 
 
     }//GEN-LAST:event_jButtonGenerarNumeroActionPerformed
@@ -120,7 +122,7 @@ public class Bingo extends javax.swing.JFrame {
 
         //Comprobar si alguna fila esta completa
         int f = 0;
-        boolean ganar = false;
+         ganar = false;
         for (int fila = 0; fila < 5; fila++) {
             for (int col = 0; col < 5; col++) {
                 if (carton[fila][col] == 0) {
@@ -155,13 +157,10 @@ public class Bingo extends javax.swing.JFrame {
 
         //Comprobar la diagonal que empieza en 00 
         f = 0;
-        for (int col = 0; col < 5; col++) {
-            for (int fila = 0; fila < 5; fila++) {
-                if (col == fila) {
-                    if (carton[fila][col] == 0) {
+        for (int i = 0; i < 5; i++) {
+            
+                    if (carton[i][i] == 0) {
                         f++;
-                    }
-                }
             }
         }
         if (f == 5) {
@@ -169,9 +168,7 @@ public class Bingo extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Completaste una diagonal", "Ganaste!", JOptionPane.INFORMATION_MESSAGE);
 
             return ganar;
-        } else {
-            f = 0;
-        }
+        } 
 
         //Comprobar la segunda diagonal
         f = 0;
@@ -190,9 +187,7 @@ public class Bingo extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Completaste una diagonal", "Ganaste!", JOptionPane.INFORMATION_MESSAGE);
 
             return ganar;
-        } else {
-            f = 0;
-        }
+        } 
 
         return ganar;
 
@@ -268,7 +263,9 @@ public class Bingo extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonGenerarNumero;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JTextArea jTextArea;
     // End of variables declaration//GEN-END:variables
 
