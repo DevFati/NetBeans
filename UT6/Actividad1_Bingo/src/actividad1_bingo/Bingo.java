@@ -91,10 +91,7 @@ public class Bingo extends javax.swing.JFrame {
     private void jButtonGenerarNumeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGenerarNumeroActionPerformed
         int n = 0;
         n = (int) (Math.random() * 75) + 1;
-
-        
-        
-       
+   
             jLabel1.setText(n + "");
             if (buscaNum(n)) {
                 //Cambiamos el numero encontrado por un "0"
@@ -109,13 +106,6 @@ public class Bingo extends javax.swing.JFrame {
                    jButtonGenerarNumero.setEnabled(false); 
                 }
             }        
-        
-            
-        
-        
-        
-
-
     }//GEN-LAST:event_jButtonGenerarNumeroActionPerformed
 
     private boolean comprobarEstado() {

@@ -9,7 +9,7 @@ import javax.swing.JFrame;
 
 /**
  *
- * @author Tarde
+ * @author Fatima Mortahil Chachou 
  */
 public class Juego extends JFrame {
 

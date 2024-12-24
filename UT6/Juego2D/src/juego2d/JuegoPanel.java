@@ -6,6 +6,7 @@
 package juego2d;
 
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -15,12 +16,16 @@ import javax.swing.Timer;
 
 /**
  *
- * @author Tarde
+ * @author Fatima Mortahil Chachou 
  */
 public class JuegoPanel extends javax.swing.JPanel implements ActionListener{
 
     private Timer timer;
     private int x, y, velX, velY;
+    private int puntuaje, vidas;
+    //Contador para medir 3 segundos, porque sumo un punto cada 3 segundos
+    private int contadorTiempo; 
+    
     /**
      * Creates new form JuegoPanel
      */
@@ -33,6 +38,10 @@ public class JuegoPanel extends javax.swing.JPanel implements ActionListener{
         y = 50;
         velX = 0;
         velY = 0;
+        puntuaje=0;
+        vidas=3;
+        contadorTiempo=0;
+        //Ejecuta el metodo actionPerformed cada 10 ms para actualizar el juego 
         timer = new Timer(10, this);
         timer.start();
     }
@@ -57,7 +66,8 @@ public class JuegoPanel extends javax.swing.JPanel implements ActionListener{
             .addGap(0, 300, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
-
+      
+    
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
@@ -68,18 +78,80 @@ public class JuegoPanel extends javax.swing.JPanel implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
         mover();
-        repaint();
+        verificarColisiones(); //vemos si el cuadrado toco el borde 
+        actualizarPuntuaje(); //incrementa el puntuaje cada 3s
+        repaint(); //vuelve a dibujar el panel con los nuevos cambios 
     }
 
     private void dibujar(Graphics g) {
-g.setColor(Color.RED);
+        g.setColor(Color.CYAN);
         g.fillRect(x, y, 30, 30); // Dibujamos un cuadrado
+        
+        //Mostrar puntuaje y vidas 
+        
+        g.setColor(Color.WHITE);
+        g.setFont(new Font("Arial", Font.BOLD, 16));
+        g.drawString("Puntuaje: "+puntuaje, 10, 20);
+        g.drawString("Vidas: "+vidas, 10, 40);
+        
+        //Mensaje de fin de juego cuando no tengamos mas vidas        
+        if(vidas <= 0){
+            g.setColor(Color.RED);
+            g.setFont(new Font("Arial",Font.BOLD,30));
+            g.drawString("¡Perdiste!", getWidth()/2-100, getHeight()/2);
+            timer.stop();
+        }
     }
 
     private void mover() {
         x +=velX;
         y +=velY;
+       
         
+    }
+
+    private void verificarColisiones() {
+        //obtenemos el ancho y alto de nuestro panel 
+        int pW=getWidth();
+        int pH=getHeight();
+        
+        //Detectar colisiones con los bordes 
+        //ponemos x+30 (30 es lo que mide nuestro cuadrado)
+        //es decir si en la posicion en la que esta si se le suma 30 y se sale de los limites del panel 
+        //quiere decir que toco el borde 
+       if (x < 0 || x + 30 > pW || y < 0 || y + 30 > pH) {
+            perderVida(); //restamos vidas o indicamos que el usuario perdio si no le quedan vidas
+        } 
+    }
+
+    private void perderVida() {
+        vidas--;
+        
+        if(vidas>0){
+            //si me quedan vidas, reinicio el contador de puntuaje a 0
+            puntuaje=0;
+            //colocamos el cuadrado en el centro del panel 
+            x = (getWidth() - 30) / 2;
+            y = (getHeight() - 30) / 2;
+            
+        }else{
+           
+            velX=0;
+            velY=0; //No dejar que se mueva cuando se pierdan las vidas 
+        }
+    }
+
+    private void actualizarPuntuaje() {
+        if (vidas > 0) {
+            // Incrementar el contador de tiempo
+            contadorTiempo += 10; // Timer se ejecuta cada 10 ms
+
+            // Si han pasado 3 segundos (3000 ms), sumar un punto
+            if (contadorTiempo >= 3000) {
+                puntuaje++; 
+                contadorTiempo = 0; // Reiniciar el contador
+            }
+        }
     }
 
     private class TAdapter extends KeyAdapter {
