@@ -8,8 +8,10 @@ package newpackage;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
+import java.awt.Image;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
 /**
@@ -23,15 +25,22 @@ public class GamePanel extends JPanel implements Runnable, KeyListener{
     private boolean running; 
     private Ball ball; 
     private Paddle player1, player2;
+    private Score score;
+    private Image background;
     
     public GamePanel(){
         setPreferredSize(new Dimension(WIDTH, HEIGHT));
         setBackground(Color.BLACK);
         addKeyListener(this);
         setFocusable(true);
+        //Aqui cargamos nuestra imagen de fondo OJO!!!! Tenemos que poner la ruta absoluta
+        background = new ImageIcon(getClass().getResource("/imgs/dos.png")).getImage();
+
+        
         ball=new Ball(WIDTH/2, HEIGHT/2, 20, 20);
         player1=new Paddle(10,HEIGHT/2-60,10,120);
         player2=new Paddle(WIDTH-20, HEIGHT/2-60,10,120);
+        score=new Score();
         startGame();
         
     }
@@ -59,7 +68,16 @@ public class GamePanel extends JPanel implements Runnable, KeyListener{
     
      private void update() {
          ball.move();
-         ball.checkCollision(player1,player2,WIDTH,HEIGHT);
+         ball.checkCollision(player1,player2,WIDTH,HEIGHT,score);
+         
+         //Subimos la dificultad cuando el puntuaje total es multiplo de 5 
+          if (score.getTotalScore() % 5 == 0) {
+        
+            player1.reduceHeight();
+            player2.reduceHeight();
+        }
+          
+          
          player1.move(HEIGHT);
          player2.move(HEIGHT);
     }
@@ -67,9 +85,15 @@ public class GamePanel extends JPanel implements Runnable, KeyListener{
      @Override
      protected void paintComponent(Graphics g){
          super.paintComponent(g);
+         
+         //Dibujamos el fondo 
+         g.drawImage(background, 0, 0, WIDTH,HEIGHT,null);
+         
          ball.draw(g);
          player1.draw(g);
          player2.draw(g);
+         score.draw(g, WIDTH, HEIGHT);
+
      }
 
      //Metodos keyListener 

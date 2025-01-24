@@ -53,6 +53,10 @@ public class Paddle {
         return height;
     }
    
+    public void reduceHeight() {
+    if (height > 40) height -= 10;
+    }
+
    
    
 }
