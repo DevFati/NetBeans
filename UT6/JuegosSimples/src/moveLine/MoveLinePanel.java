@@ -73,7 +73,9 @@ public class MoveLinePanel extends javax.swing.JPanel {
     }//GEN-LAST:event_mRActionPerformed
 
     public void moverIzquierda(){
-        lineaX-=10; //se mueve la linea hacia la izquierda 
+         if (lineaX - 15 >= 0) { //  que no salga del límite izquierdo
+            lineaX -= 10; 
+        } //se mueve la linea hacia la izquierda 
         repaint(); //actualizar el panel 
     }
      //ahora le damos funcionalidades a los botones 
@@ -85,7 +87,9 @@ public class MoveLinePanel extends javax.swing.JPanel {
         
        
     public void moverDerecha(){
-        lineaX+=10; //se mueve la linea hacia la derecha 
+          if (lineaX + 15 <= getWidth()) { //  que no salga del límite derecho
+            lineaX += 10; // Mover la línea hacia la derecha
+        }
         repaint(); //actualizar el panel 
     }
     @Override

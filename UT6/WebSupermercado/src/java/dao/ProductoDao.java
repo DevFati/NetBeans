@@ -69,7 +69,7 @@ public class ProductoDao {
         Connection con = null;
         PreparedStatement st = null;
         try {
-            String SQL = "UPDATE productos"
+            String SQL = "UPDATE productos "
                     + "SET "
                     + "    nombre = ?, "
                     + "    descripcion = ?, "
@@ -122,12 +122,14 @@ public class ProductoDao {
         Connection con = null;
         PreparedStatement st = null;
         try {
-            String SQL = "DELETE FROM productos where codigo=?";
+            String SQL = "DELETE FROM productos where codigo =?";
 
             con = conexion.conectar();
             if (con == null) {
                 return false;
             }
+
+                   
 
             st = con.prepareStatement(SQL);
             st.setInt(1, p.getCodigo()); 

@@ -16,7 +16,7 @@
     <head>
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
         <meta charset="utf-8" />
-        <title>Gestión de libros</title>
+        <title>Gestión de productos</title>
 
         <meta name="description" content="Christian Gámez Udemy" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
@@ -42,7 +42,7 @@
                     <a href="index.jsp" class="navbar-brand">
                         <small>
                             <i class="fa fa-book"></i>
-                            Gestión de libros
+                            Gestión de productos
                         </small>
                     </a>
                 </div>
@@ -404,7 +404,7 @@
                     <li class="active open">
                         <a href="#" class="dropdown-toggle">
                             <i class="menu-icon fa fa-book"></i>
-                            <span class="menu-text"> Gestionar libros </span>
+                            <span class="menu-text"> Gestionar productos </span>
 
                             <b class="arrow fa fa-angle-down"></b>
                         </a>
@@ -415,7 +415,7 @@
                             <li class="active">
                                 <a href="index.jsp">
                                     <i class="menu-icon fa fa-caret-right"></i>
-                                    Lista de libros
+                                    Lista de productos
                                 </a>
 
                                 <b class="arrow"></b>
@@ -547,10 +547,10 @@
 
                         <div class="page-header">
                             <h1>
-                                Gestionar los libros
+                                Gestionar los productos
                                 <small>
                                     <i class="ace-icon fa fa-angle-double-right"></i>
-                                    Lista de libros
+                                    Lista de productos
                                 </small>
                             </h1>
                         </div><!-- /.page-header -->

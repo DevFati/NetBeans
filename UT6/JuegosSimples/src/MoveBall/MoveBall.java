@@ -7,6 +7,7 @@ package MoveBall;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.event.ActionEvent;
 
 /**
  *
@@ -123,26 +124,34 @@ public class MoveBall extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUpActionPerformed
-        bY -=10; //movemos la bola hacia arriba 
+         if (bY - 10 >= 0) { //  hacemos que no salga del límite superior
+            bY -= 10;
+        }
         repaint();
     }//GEN-LAST:event_jButtonUpActionPerformed
 
     private void jButtonDownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDownActionPerformed
-        bY +=10; //movemos la bola hacia abajo 
+         if (bY + bTamaño + 10 <= getHeight()) { // para que  no salga del límite inferior
+            bY += 10;
+        }
         repaint();
     }//GEN-LAST:event_jButtonDownActionPerformed
 
     private void jButtonLeftActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLeftActionPerformed
-       bX -=10; //movemos la bola hacia la izquierda 
+       if (bX - 10 >= 0) { // vemos que no salga del límite izquierdo
+            bX -= 10;
+        }
         repaint();
     }//GEN-LAST:event_jButtonLeftActionPerformed
 
     private void jButtonRightActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRightActionPerformed
-       bX +=10; //movemos la bola hacia la derecha 
+       if (bX + bTamaño + 10 <= getWidth()) { 
+            bX += 10;
+        }
         repaint();
     }//GEN-LAST:event_jButtonRightActionPerformed
 
-    
+  
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton3;

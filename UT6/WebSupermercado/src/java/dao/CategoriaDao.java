@@ -99,4 +99,48 @@ public class CategoriaDao {
             }
         }
     }
+    
+     public static String getCategoria(int cod) {
+        Connection con = null;
+        PreparedStatement st = null;
+        ResultSet resultado = null;
+        try {
+            String SQL = "select nombre from categorias where codigo=?";
+            con = conexion.conectar();
+            if (con == null) {
+                return null;
+            }
+            st = con.prepareStatement(SQL);
+            st.setInt(1, cod);
+            resultado = st.executeQuery();
+
+            //  st.setString(1,cat.getNombre());
+     
+            if(resultado.next()){ 
+               
+                return (resultado.getString("nombre"));
+              
+            }
+           return "--";
+           
+        } catch (SQLException ex) {
+            Logger.getLogger(CategoriaDao.class.getName()).log(Level.SEVERE, null, ex);
+            return "--";
+        } finally {
+            // Asegúrate de cerrar los recursos
+            try {
+                if (resultado != null) {
+                    resultado.close();
+                }
+                if (st != null) {
+                    st.close();
+                }
+                if (con != null) {
+                    con.close();
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(CategoriaDao.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
 }

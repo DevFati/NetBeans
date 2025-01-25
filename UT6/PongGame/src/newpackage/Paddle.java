@@ -54,7 +54,9 @@ public class Paddle {
     }
    
     public void reduceHeight() {
-    if (height > 40) height -= 10;
+    if (height > 40) { // Evitar que la paleta sea demasiado pequeña
+        height -= 10; // Reducir la altura de la paleta
+    }
     }
 
    

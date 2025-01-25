@@ -26,6 +26,7 @@ public class Juego {
         // Configurar el marco
         frame.pack(); //ajusta el tamaño automaticamente 
         frame.setLocationRelativeTo(null); // Centrar ventana
+        frame.setResizable(false);
         frame.setVisible(true); // Mostrar ventana
         
     }

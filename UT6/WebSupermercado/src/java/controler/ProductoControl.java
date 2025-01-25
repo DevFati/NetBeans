@@ -78,8 +78,13 @@ public class ProductoControl extends HttpServlet {
         int codigo=Integer.parseInt(request.getParameter("codigo"));
         String nombre = request.getParameter("nombre");
         String descripcion = request.getParameter("descripcion");
-        int cantidad = Integer.parseInt(request.getParameter("cantidad"));
-        double precio = Double.parseDouble(request.getParameter("precio"));
+         int cantidad=0;
+         double precio=0;
+        if(!request.getParameter("cantidad").equals("") && !request.getParameter("precio").equals("")){
+         cantidad = Integer.parseInt(request.getParameter("cantidad"));
+         precio = Double.parseDouble(request.getParameter("precio"));
+
+        }
         int categoria_id = Integer.parseInt(request.getParameter("categoria"));
         String proveedor_id = request.getParameter("proveedor");
         
