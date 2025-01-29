@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="informeprincipal" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="6204aad6-d17c-4662-8c2c-b0d62c03f5f8">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="informeprincipal" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="6204aad6-d17c-4662-8c2c-b0d62c03f5f8">
 	<property name="ireport.zoom" value="1.0"/>
-	<property name="ireport.x" value="29"/>
+	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<parameter name="PokemonID" class="java.lang.String"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C:\\Users\\Fatima\\Documents\\CURSO24_25DAM\\NetBeans\\UT6\\InformeRegion\\src\\Informes\\"]]></defaultValueExpression>
+	</parameter>
 	<queryString>
 		<![CDATA[SELECT PokemonID, Nombre, Tipo, Altura, Peso 
 FROM Pokemon
@@ -36,13 +39,44 @@ WHERE PokemonID = $P{PokemonID}]]>
 				</textElement>
 				<text><![CDATA[POKEMON INICIALES DE KANTO]]></text>
 			</staticText>
+			<image>
+				<reportElement x="5" y="11" width="147" height="68" uuid="26979f5b-e9ce-4022-8615-971fa9ee78c1"/>
+				<imageExpression><![CDATA["C:\\Users\\Fatima\\Documents\\CURSO24_25DAM\\NetBeans\\UT6\\InformeRegion\\src\\imgs\\International_Pokémon_logo.svg (1).png"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="413" y="11" width="551" height="65" uuid="f3a758bf-3e7a-4ba7-bdb9-e9e9759e320e"/>
+				<imageExpression><![CDATA["C:\\Users\\Fatima\\Documents\\CURSO24_25DAM\\NetBeans\\UT6\\InformeRegion\\src\\imgs\\639266a98b3a0.jpeg"]]></imageExpression>
+			</image>
 		</band>
 	</title>
 	<pageHeader>
-		<band height="35" splitType="Stretch"/>
+		<band height="54" splitType="Stretch">
+			<subreport>
+				<reportElement x="264" y="0" width="291" height="54" uuid="43137d63-af64-4d53-873a-e791d25f3e4f"/>
+				<subreportParameter name="PokemonID">
+					<subreportParameterExpression><![CDATA[$F{PokemonID}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA["informeprincipal_subreport_moves.jasper"]]></subreportExpression>
+			</subreport>
+			<staticText>
+				<reportElement x="52" y="0" width="100" height="20" uuid="ee87acc9-b3cd-4f59-9926-8335206ddc0a"/>
+				<textElement>
+					<font size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Id Pokemon: ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="135" y="0" width="100" height="20" uuid="b6805acd-bf59-418a-90f7-71e63d194a17"/>
+				<textElement>
+					<font size="13" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PokemonID}]]></textFieldExpression>
+			</textField>
+		</band>
 	</pageHeader>
 	<columnHeader>
-		<band height="33" splitType="Stretch">
+		<band height="57" splitType="Stretch">
 			<staticText>
 				<reportElement mode="Opaque" x="52" y="2" width="100" height="20" backcolor="#CC00CC" uuid="af4f9c84-904d-48d2-a5a2-71379bb13c42"/>
 				<textElement textAlignment="Center">

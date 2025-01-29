@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="pokemonkj" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="97bc4339-7441-4317-85a1-d32e94d070a5">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="REGION" class="java.lang.String"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C:\\Users\\Fatima\\Documents\\CURSO24_25DAM\\NetBeans\\UT6\\Reportes\\"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT 
+    p.region AS region,
+    p.nombre AS pokemon_nombre,
+    m.nombre AS movimiento_nombre,
+    pm.nivel_aprendizaje
+	
+FROM 
+    pokemon_movimientos pm
+JOIN 
+    pokemons p ON pm.pokemon_id = p.id
+JOIN 
+    movimientos m ON pm.movimiento_id = m.id
+
+ORDER BY 
+    p.region, p.id, pm.nivel_aprendizaje;
+]]>
+	</queryString>
+	<field name="region" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="pokemon_nombre" class="java.lang.String"/>
+	<field name="movimiento_nombre" class="java.lang.String"/>
+	<field name="nivel_aprendizaje" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="15" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="10" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="27" splitType="Stretch">
+			<textField>
+				<reportElement x="32" y="2" width="100" height="20" uuid="e783e7ea-6870-4992-9a87-e3e98f4524b1"/>
+				<textElement>
+					<font size="13" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Región: "]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="144" y="2" width="100" height="20" uuid="5deb795b-f92f-4700-9469-013389de9fd9"/>
+				<textElement>
+					<font size="13" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{REGION}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="35" splitType="Stretch">
+			<textField>
+				<reportElement x="365" y="6" width="148" height="20" uuid="7042b0ce-70f5-4853-8325-04f00e97d9a8"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nivel_aprendizaje}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="32" y="6" width="147" height="20" uuid="1c6870f9-c407-4e9d-bbfa-936aebdbbfcb"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pokemon_nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="198" y="6" width="149" height="20" uuid="5094fe63-cb25-4f7e-ac3b-acc801920dad"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{movimiento_nombre}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="13" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="20" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="346" splitType="Stretch">
+			<subreport>
+				<reportElement x="0" y="0" width="555" height="333" uuid="35329412-019f-416e-8b33-deeaf0312860"/>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA["pokemonkj_subreport1.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</summary>
+</jasperReport>

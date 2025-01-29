@@ -29,5 +29,6 @@ public class Juego {
         frame.setLocationRelativeTo(null); // Centrar ventana
         frame.setResizable(false);
         frame.setVisible(true); // Mostrar ventana
+        
     }
 }
