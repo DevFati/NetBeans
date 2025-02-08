@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="informeprincipal" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d8e14f3d-a308-4860-ab38-e1515811051e">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="VentaID" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C:\\Users\\Fatima\\Documents\\CURSO24_25DAM\\NetBeans\\UT6\\Practica9\\src\\Informes\\"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT v.id_venta, c.nombre AS cliente, c.apellido AS cliente_apellido, 
+       ve.marca, ve.modelo, ve.anio, v.fecha_venta, v.precio_final, 
+       v.id_empleado
+FROM Ventas v
+JOIN Clientes c ON v.id_cliente = c.id_cliente
+JOIN Vehiculos ve ON v.id_vehiculo = ve.id_vehiculo
+ AND v.id_venta = $P{VentaID};
+
+]]>
+	</queryString>
+	<field name="id_venta" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="cliente" class="java.lang.String"/>
+	<field name="cliente_apellido" class="java.lang.String"/>
+	<field name="marca" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="modelo" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="anio" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fecha_venta" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="precio_final" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="id_empleado" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="160" y="31" width="91" height="25" backcolor="#6666FF" uuid="8190173a-52e5-4659-be1e-ebf5997cb426"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[VENTAS]]></text>
+			</staticText>
+			<image>
+				<reportElement x="316" y="0" width="151" height="79" uuid="8d9eb9aa-ccaf-4574-800a-ed26d59cf1a7"/>
+				<imageExpression><![CDATA["C:\\Users\\Fatima\\Documents\\CURSO24_25DAM\\NetBeans\\UT6\\Practica9\\src\\imgs\\img2 .jpg"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="37" y="10" width="168" height="69" uuid="96d886a0-a215-46ad-b7ed-fe44af11c5d6"/>
+				<imageExpression><![CDATA["C:\\Users\\Fatima\\Documents\\CURSO24_25DAM\\NetBeans\\UT6\\Practica9\\src\\imgs\\img1.jpg"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="65" splitType="Stretch">
+			<subreport>
+				<reportElement x="160" y="18" width="409" height="35" uuid="a0dfcc2c-fbcd-44d3-99ba-fb021c63a609"/>
+				<subreportParameter name="VentaID">
+					<subreportParameterExpression><![CDATA[$F{id_venta}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA["informeprincipal_subreport_.jasper"]]></subreportExpression>
+			</subreport>
+			<textField>
+				<reportElement x="10" y="18" width="136" height="20" uuid="6eda0b52-9a64-420c-ab80-fc86011a4d8c"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Id Venta:"+$P{VentaID}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="37" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="37" y="2" width="70" height="20" backcolor="#00FFCC" uuid="061ae448-2877-43c1-9244-d6d9312d4f28"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[cliente]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="131" y="2" width="64" height="20" backcolor="#CCFF66" uuid="1b244d19-cc86-44d1-b714-8343f586a175"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[marca]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="221" y="2" width="85" height="20" backcolor="#FF66FF" uuid="c6c70b0a-fc76-4d0c-b6a9-6d743c1be73b"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[fecha_venta]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="336" y="0" width="100" height="20" backcolor="#CCCCFF" uuid="8dd898c9-3efc-4c11-a9ba-edcd55aa0ccf"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[precio_final]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="36" splitType="Stretch">
+			<textField>
+				<reportElement x="37" y="0" width="70" height="20" uuid="ba292abb-578d-4c78-ad99-db6495eb93ee"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cliente}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="131" y="0" width="64" height="20" uuid="fbb77e7c-50b6-48f6-86ef-5a0decdb1f96"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{marca}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="221" y="0" width="95" height="20" uuid="f683e591-e528-4aaf-bdc3-71100c634ca4"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fecha_venta}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="336" y="0" width="100" height="20" uuid="28ed1dd7-b8b8-4dda-8968-4331cf57008c"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{precio_final}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="16" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="25" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="148" splitType="Stretch">
+			<subreport>
+				<reportElement x="10" y="22" width="502" height="92" uuid="1eb367db-8a79-4f57-933e-d59b79905a6e"/>
+				<subreportParameter name="EmpleadoID">
+					<subreportParameterExpression><![CDATA[$F{id_empleado}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA["informeprincipal_subreport1.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</summary>
+</jasperReport>

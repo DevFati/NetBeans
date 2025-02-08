@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="informeprincipal_subreport1" pageWidth="555" pageHeight="802" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="33739659-0085-4aa0-b7f0-f0b536b37ff0">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="EmpleadoID" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT 
+    ve.marca AS Marca, 
+    COUNT(v.id_venta) AS Ventas
+    
+FROM Ventas v
+JOIN Vehiculos ve ON v.id_vehiculo = ve.id_vehiculo
+JOIN Empleados e ON v.id_empleado = e.id_empleado
+WHERE e.id_empleado = $P{EmpleadoID}
+GROUP BY ve.marca, e.nombre, e.apellido
+ORDER BY Ventas DESC;
+;]]>
+	</queryString>
+	<field name="Marca" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Ventas" class="java.lang.Long"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<summary>
+		<band height="182" splitType="Stretch">
+			<bar3DChart>
+				<chart>
+					<reportElement x="16" y="12" width="520" height="170" uuid="0a7e80f1-ee25-4928-9595-33eb0399786a"/>
+					<chartTitle/>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<categoryDataset>
+					<categorySeries>
+						<seriesExpression><![CDATA["Numero de modelos vendidos"]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{Marca}]]></categoryExpression>
+						<valueExpression><![CDATA[$F{Ventas}]]></valueExpression>
+					</categorySeries>
+				</categoryDataset>
+				<bar3DPlot>
+					<plot/>
+					<itemLabel/>
+					<categoryAxisFormat>
+						<axisFormat tickLabelMask="0"/>
+					</categoryAxisFormat>
+					<valueAxisFormat>
+						<axisFormat/>
+					</valueAxisFormat>
+				</bar3DPlot>
+			</bar3DChart>
+		</band>
+	</summary>
+</jasperReport>

@@ -3,9 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package actividad1_bingo;
+package actividad1bingo;
 
-import static actividad1_bingo.Actividad1_Bingo.carton;
 import javax.swing.JOptionPane;
 
 /**
@@ -240,6 +239,7 @@ public class Bingo extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(Bingo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */

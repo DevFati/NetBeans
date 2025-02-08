@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package actividad1_bingo;
+package actividad1bingo;
 
 /**
  *
